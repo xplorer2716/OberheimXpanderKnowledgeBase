@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <meta name='ocr-system' content='tesseract v5.5.0.20241111' />
+  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_dir ocrp_lang ocrp_wconf'/>
+ </head>
+ <body>
+  <div class='ocr_page' id='page_1' title='image "C:\dev\repos\xplorer2716\public\OberheimXpanderKnowledgeBase\ocr\wip\Oberheim Xpander Owners Manual_ocr-temp\page-0065-clean.png"; bbox 0 0 12806 16667; ppageno 0; scan_res 400 400'>
+   <div class='ocr_separator' id='block_1_1' title="bbox 15 11968 23 16540"></div>
+   <div class='ocr_separator' id='block_1_2' title="bbox 1851 149 2184 150"></div>
+   <div class='ocr_carea' id='block_1_3' title="bbox 827 1252 2896 1726">
+    <p class='ocr_par' id='par_1_1' lang='eng' title="bbox 827 1252 2896 1726">
+     <span class='ocr_line' id='line_1_1' title="bbox 827 1252 2896 1726; baseline -0.014 -92; x_size 421.78195; x_descenders 57.781956; x_ascenders 99">
+      <span class='ocrx_word' id='word_1_1' title='bbox 827 1252 2896 1726; x_wconf 89'>Appendix</span>
+     </span>
+    </p>
+   </div>
+   <div class='ocr_separator' id='block_1_4' title="bbox 6212 1652 6798 1653"></div>
+   <div class='ocr_separator' id='block_1_5' title="bbox 6181 1653 6834 1660"></div>
+   <div class='ocr_separator' id='block_1_6' title="bbox 4561 1658 5128 1674"></div>
+   <div class='ocr_separator' id='block_1_7' title="bbox 3101 1678 3639 1693"></div>
+   <div class='ocr_separator' id='block_1_8' title="bbox 1693 1686 2309 1703"></div>
+   <div class='ocr_carea' id='block_1_9' title="bbox 3740 2195 7053 2803">
+    <p class='ocr_par' id='par_1_2' lang='eng' title="bbox 3740 2195 7053 2803">
+     <span class='ocr_line' id='line_1_2' title="bbox 3740 2195 7030 2455; baseline -0.006 -29; x_size 266; x_descenders 48; x_ascenders 48">
+      <span class='ocrx_word' id='word_1_2' title='bbox 3740 2207 4144 2425; x_wconf 96'>68</span>
+      <span class='ocrx_word' id='word_1_3' title='bbox 4423 2206 5248 2424; x_wconf 93'>Error</span>
+      <span class='ocrx_word' id='word_1_4' title='bbox 5332 2195 7030 2455; x_wconf 95'>Messages</span>
+     </span>
+     <span class='ocr_line' id='line_1_3' title="bbox 3756 2573 7053 2803; baseline -0.005 0; x_size 263.62848; x_descenders 45.62849; x_ascenders 57">
+      <span class='ocrx_word' id='word_1_5' title='bbox 3756 2588 4153 2803; x_wconf 96'>70</span>
+      <span class='ocrx_word' id='word_1_6' title='bbox 4422 2585 5142 2792; x_wconf 87'>MIDI</span>
+      <span class='ocrx_word' id='word_1_7' title='bbox 5238 2573 6438 2792; x_wconf 89'>Control</span>
+      <span class='ocrx_word' id='word_1_8' title='bbox 6543 2617 7053 2789; x_wconf 96'>ers</span>
+     </span>
+    </p>
+   </div>
+   <div class='ocr_separator' id='block_1_10' title="bbox 43 508 51 2687"></div>
+   <div class='ocr_separator' id='block_1_11' title="bbox 60 3850 62 4310"></div>
+   <div class='ocr_separator' id='block_1_12' title="bbox 74 6453 78 8000"></div>
+   <div class='ocr_separator' id='block_1_13' title="bbox 90 9319 92 9734"></div>
+   <div class='ocr_separator' id='block_1_14' title="bbox 117 11947 121 12465"></div>
+   <div class='ocr_separator' id='block_1_15' title="bbox 129 14054 132 14634"></div>
+   <div class='ocr_separator' id='block_1_16' title="bbox 133 15135 134 15507"></div>
+   <div class='ocr_separator' id='block_1_17' title="bbox 5738 15789 6636 15793"></div>
+   <div class='ocr_separator' id='block_1_18' title="bbox 5766 15796 6648 15802"></div>
+   <div class='ocr_separator' id='block_1_19' title="bbox 4547 15802 4936 15817"></div>
+   <div class='ocr_carea' id='block_1_20' title="bbox 4012 15924 7636 16117">
+    <p class='ocr_par' id='par_1_3' lang='eng' title="bbox 4012 15924 7636 16117">
+     <span class='ocr_line' id='line_1_4' title="bbox 4012 15924 7636 16117; baseline -0.009 -25; x_size 180; x_descenders 39; x_ascenders 47">
+      <span class='ocrx_word' id='word_1_9' title='bbox 4012 15951 4202 16092; x_wconf 56'>87</span>
+      <span class='ocrx_word' id='word_1_10' title='bbox 4526 15956 5213 16117; x_wconf 55'> Xpanger</span>
+      <span class='ocrx_word' id='word_1_11' title='bbox 5271 15951 5898 16091; x_wconf 72'>Owners</span>
+      <span class='ocrx_word' id='word_1_12' title='bbox 5965 15939 6550 16076; x_wconf 40'>Manual</span>
+      <span class='ocrx_word' id='word_1_13' title='bbox 6862 15924 7636 16101; x_wconf 93'>Appendix</span>
+     </span>
+    </p>
+   </div>
+   <div class='ocr_photo' id='block_1_21' title="bbox 50 298 538 16667"></div>
+   <div class='ocr_separator' id='block_1_22' title="bbox 135 16159 142 16631"></div>
+   <div class='ocr_separator' id='block_1_23' title="bbox 10851 90 11643 91"></div>
+   <div class='ocr_separator' id='block_1_24' title="bbox 10023 93 10363 98"></div>
+   <div class='ocr_separator' id='block_1_25' title="bbox 7927 106 8920 107"></div>
+   <div class='ocr_separator' id='block_1_26' title="bbox 8159 106 8920 107"></div>
+   <div class='ocr_separator' id='block_1_27' title="bbox 10876 1620 11640 1629"></div>
+   <div class='ocr_separator' id='block_1_28' title="bbox 8713 1635 9336 1645"></div>
+   <div class='ocr_separator' id='block_1_29' title="bbox 10091 15751 10690 15765"></div>
+   <div class='ocr_separator' id='block_1_30' title="bbox 7889 15772 8563 15776"></div>
+   <div class='ocr_separator' id='block_1_31' title="bbox 8151 15784 8528 15788"></div>
+  </div>
+ </body>
+</html>

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Convertit un ou plusieurs PDF en fichier(s) texte via OCR (Tesseract).
+    Converts one or more PDFs to text file(s) via OCR (Tesseract).
 
 .DESCRIPTION
     Tesseract cannot read PDFs: every page is first rasterised to a PNG image
@@ -46,19 +46,19 @@
     linearly with the core count.
 
 .PARAMETER Path
-    Chemin d'un fichier PDF, ou d'un repertoire contenant des PDF.
+    Path to a PDF file, or a directory containing PDFs.
 
 .PARAMETER OutputPath
-    Fichier texte de sortie. Ignore en mode repertoire (chaque PDF produit un
-    .txt a cote de lui). Par defaut : meme nom que le PDF, en .txt.
+    Output text file. Ignored in directory mode (each PDF produces a .txt
+    next to it). Default: same name as the PDF, with a .txt extension.
     Use a .md extension if you want to exploit the Markdown headings.
 
 .PARAMETER Language
-    Langue(s) Tesseract (ex. 'fra', 'eng', 'fra+eng'). Defaut : 'fra'.
+    Tesseract language(s) (e.g. 'fra', 'eng', 'fra+eng'). Default: 'fra'.
 
 .PARAMETER Dpi
-    Resolution de rasterisation. Plus haut = meilleur OCR mais plus lent.
-    Defaut : 300. On an old scan set in fine serif, 400 brings a clear gain.
+    Rasterisation resolution. Higher = better OCR but slower.
+    Default: 300. On an old scan set in fine serif, 400 brings a clear gain.
 
 .PARAMETER MinConfidence
     Minimum mean confidence (0-100) for an OCR line to be kept. Default: 65.
@@ -81,26 +81,33 @@
     source rather than filtering it out afterwards.
 
 .PARAMETER Threads
-    Number of pages cleaned and OCRed concurrently. Default: logical cores - 1.
-    Set to 1 for a strictly serial run (useful when diagnosing a failure).
-    Beyond the physical core count the gain flattens while memory use keeps
-    climbing (~150 MB per concurrent page at 400 dpi).
+    Number of pages OCRed concurrently (one tesseract process per page).
+    Default: logical cores / 3 (integer division), a conservative default
+    that leaves headroom for other work on the machine; raise it explicitly
+    (e.g. -Threads <cores - 1>) once you know the machine can take it. Set to
+    1 for a strictly serial run (useful when diagnosing a failure). Beyond
+    the physical core count the gain flattens while memory use keeps
+    climbing (~150-300 MB per concurrent tesseract process at 400 dpi).
+    Image cleaning (-CleanImages) is separately capped at cores/3 pages
+    concurrently (never above this value): it runs in-process via GDI+,
+    which has its own, much lower resource ceiling than spawning OCR child
+    processes does.
 
 .PARAMETER KeepImages
     Keeps the intermediate PNG images (and .hocr files) instead of deleting
     them. Useful for tuning the -CleanImages thresholds.
 
 .PARAMETER IncludeSourceName
-    Ajoute en tete du fichier texte une ligne indiquant le nom du PDF source
-    ayant servi a l'OCR (tracabilite : permet p.ex. a une IA de connaitre le
-    fichier d'origine et de relancer un OCR cible si un detail semble manquer).
-    Actif par defaut ; utiliser -IncludeSourceName:$false pour le desactiver.
+    Adds a line at the top of the text file giving the name of the source PDF
+    the OCR was run on (traceability: lets e.g. an AI know the original file
+    and re-run a targeted OCR if a detail seems missing).
+    On by default; use -IncludeSourceName:$false to disable it.
 
 .EXAMPLE
     .\convert-pdf-to-text-ocr.ps1 -Path .\test\test.pdf
 
 .EXAMPLE
-    .\convert-pdf-to-text-ocr.ps1 -Path .\faits\documents
+    .\convert-pdf-to-text-ocr.ps1 -Path .\manuals
 
 .EXAMPLE
     # Old scan, maximum quality:
@@ -130,7 +137,7 @@ param(
     [switch]$CleanImages,
 
     [ValidateRange(1, 64)]
-    [int]$Threads = [math]::Max(1, [Environment]::ProcessorCount - 1),
+    [int]$Threads = [math]::Max(1, [int]([Environment]::ProcessorCount / 3)),
 
     [switch]$KeepImages,
 
@@ -142,25 +149,25 @@ $ErrorActionPreference = 'Stop'
 # --- Preliminary checks ----------------------------------------------------
 $tessCmd = Get-Command tesseract -ErrorAction SilentlyContinue
 if (-not $tessCmd) {
-    throw "Tesseract est introuvable dans le PATH. Lancez .\setup-ocr-dependencies.ps1 puis reessayez."
+    throw "Tesseract was not found in PATH. Run .\setup-ocr-dependencies.ps1 then try again."
 }
 # Full path, because the OCR pool uses Start-Process, which does not resolve
 # a bare command name the way the call operator does.
 $script:TesseractExe = $tessCmd.Source
 
 $item = Get-Item -LiteralPath $Path -ErrorAction SilentlyContinue
-if (-not $item) { throw "Chemin introuvable : $Path" }
+if (-not $item) { throw "Path not found: $Path" }
 
 # Build the list of PDFs to process (single file, or recursive directory scan)
 $isDirectory = $item.PSIsContainer
 if ($isDirectory) {
     $pdfFiles = @(Get-ChildItem -LiteralPath $item.FullName -Filter *.pdf -File -Recurse |
         Sort-Object FullName)
-    if ($pdfFiles.Count -eq 0) { Write-Host "Aucun PDF trouve dans : $($item.FullName)"; exit 0 }
-    if ($OutputPath) { Write-Warning "-OutputPath est ignore en mode repertoire." }
+    if ($pdfFiles.Count -eq 0) { Write-Host "No PDF found in: $($item.FullName)"; exit 0 }
+    if ($OutputPath) { Write-Warning "-OutputPath is ignored in directory mode." }
 }
 else {
-    if ($item.Extension -ne '.pdf') { Write-Warning "Le fichier n'a pas l'extension .pdf : $($item.Name)" }
+    if ($item.Extension -ne '.pdf') { Write-Warning "File does not have a .pdf extension: $($item.Name)" }
     $pdfFiles = @($item)
 }
 
@@ -181,7 +188,7 @@ if (-not (Test-Path -LiteralPath (Join-Path $tessData '*.traineddata'))) {
 
 foreach ($lang in ($Language -split '\+')) {
     if ($installed -notcontains $lang) {
-        Write-Warning "Langue Tesseract '$lang' absente. Langues dispo : $($installed -join ', ')"
+        Write-Warning "Tesseract language '$lang' is missing. Available languages: $($installed -join ', ')"
         continue
     }
     # The 'fast'/legacy model (~1-4 MB) is markedly less accurate than 'best'
@@ -190,15 +197,15 @@ foreach ($lang in ($Language -split '\+')) {
     if (Test-Path -LiteralPath $td) {
         $mb = [math]::Round((Get-Item -LiteralPath $td).Length / 1MB, 1)
         if ($mb -lt 6) {
-            Write-Warning ("Modele '$lang' = $mb Mo -> c'est le modele 'fast'/legacy. " +
-                "Lancez .\setup-ocr-dependencies.ps1 -Language $lang pour installer le modele 'best' : " +
-                "le gain de precision est majeur sur un scan ancien.")
+            Write-Warning ("Model '$lang' = $mb MB -> this is the 'fast'/legacy model. " +
+                "Run .\setup-ocr-dependencies.ps1 -Language $lang to install the 'best' model: " +
+                "the accuracy gain is substantial on an old scan.")
         }
     }
 }
 
 # --- Load the WinRT APIs (once) --------------------------------------------
-Write-Host "Chargement de l'API PDF Windows..." -ForegroundColor DarkGray
+Write-Host "Loading the Windows PDF API..." -ForegroundColor DarkGray
 Add-Type -AssemblyName System.Runtime.WindowsRuntime
 [Windows.Data.Pdf.PdfDocument, Windows.Data.Pdf, ContentType = WindowsRuntime]                   | Out-Null
 [Windows.Storage.StorageFile, Windows.Storage, ContentType = WindowsRuntime]                     | Out-Null
@@ -228,7 +235,7 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)  # no BOM
 # Written in C# rather than PowerShell: we walk 8 to 15 million pixels per page,
 # which is far out of reach for an interpreted script.
 if ($CleanImages -and -not ([System.Management.Automation.PSTypeName]'OcrClean').Type) {
-    Write-Host "Compilation du filtre image..." -ForegroundColor DarkGray
+    Write-Host "Compiling the image filter..." -ForegroundColor DarkGray
     Add-Type -ReferencedAssemblies 'System.Drawing' -TypeDefinition @'
 using System;
 using System.Collections.Generic;
@@ -239,6 +246,16 @@ using System.Threading.Tasks;
 
 public static class OcrClean
 {
+    // Runs ProcessBatch on a background thread so the PowerShell caller can
+    // poll progress (via the *-clean.png files appearing on disk) instead of
+    // blocking on this call. Kept in C# rather than wrapped from PowerShell
+    // with Task.Run + a scriptblock: a scriptblock needs a runspace bound to
+    // whatever thread runs it, which a raw ThreadPool thread does not have.
+    public static Task<string[]> ProcessBatchAsync(string[] inPaths, string[] outPaths, double dpi, int threads)
+    {
+        return Task.Run(delegate { return ProcessBatch(inPaths, outPaths, dpi, threads); });
+    }
+
     // Cleans a whole batch of pages, one page per worker thread. Every buffer
     // Process() allocates is local, and GDI+ tolerates concurrent Bitmaps on
     // distinct files, so pages are embarrassingly parallel.
@@ -248,11 +265,25 @@ public static class OcrClean
         string[] res = new string[inPaths.Length];
         ParallelOptions po = new ParallelOptions();
         po.MaxDegreeOfParallelism = Math.Max(1, threads);
+        List<int> failed = new List<int>();
+        object failedLock = new object();
         Parallel.For(0, inPaths.Length, po, delegate(int i)
         {
             try { res[i] = Process(inPaths[i], outPaths[i], dpi); }
-            catch (Exception ex) { res[i] = "ERR|" + ex.Message; }
+            catch (Exception) { lock (failedLock) { failed.Add(i); } }
         });
+        // GDI+ (System.Drawing) throws spurious "Insufficient memory" /
+        // "Parameter is not valid" errors under heavy concurrent Bitmap use
+        // rather than genuine resource exhaustion - on a long manual at a
+        // high thread count this can hit a double-digit page count. Retrying
+        // serially, once the rest of the batch is done and no longer
+        // contending for the same GDI+ resources, recovers most of them
+        // before falling back to the raw image.
+        foreach (int i in failed)
+        {
+            try { res[i] = Process(inPaths[i], outPaths[i], dpi); }
+            catch (Exception ex) { res[i] = "ERR|" + ex.Message; }
+        }
         return res;
     }
 
@@ -893,18 +924,28 @@ function Convert-Pdf {
     $pageCount = [int]$doc.PageCount
 
     $mode = @()
-    if ($MinConfidence -gt 0) { $mode += "filtre conf>=$MinConfidence" } else { $mode += "brut" }
+    if ($MinConfidence -gt 0) { $mode += "confidence filter >=$MinConfidence" } else { $mode += "raw" }
     if ($Structure)   { $mode += "structure" }
-    if ($CleanImages) { $mode += "nettoyage image" }
-    Write-Host "  Pages : $pageCount   |   Langue : $Language   |   DPI : $Dpi   |   $Threads thread(s)   |   $($mode -join ' + ')" -ForegroundColor DarkGray
+    if ($CleanImages) { $mode += "image cleaning" }
+    Write-Host "  Pages: $pageCount   |   Language: $Language   |   DPI: $Dpi   |   $Threads thread(s)   |   $($mode -join ' + ')" -ForegroundColor DarkGray
 
-    $tmpDir = Join-Path ([System.IO.Path]::GetTempPath()) ("pdfocr_" + [System.IO.Path]::GetRandomFileName())
+    # -KeepImages is meant for inspecting/tuning the output, so it belongs
+    # next to the PDF where it's easy to find rather than buried under the
+    # system temp folder (which is also cleaned up automatically by Windows,
+    # unlike this one).
+    if ($KeepImages) {
+        $tmpDir = Join-Path ([System.IO.Path]::GetDirectoryName($PdfFull)) `
+            ([System.IO.Path]::GetFileNameWithoutExtension($PdfFull) + '_ocr-temp')
+    }
+    else {
+        $tmpDir = Join-Path ([System.IO.Path]::GetTempPath()) ("pdfocr_" + [System.IO.Path]::GetRandomFileName())
+    }
     New-Item -ItemType Directory -Force -Path $tmpDir | Out-Null
     $sb = New-Object System.Text.StringBuilder
 
     # Traceability header: name of the source PDF the OCR was run on.
     if ($IncludeSourceName) {
-        [void]$sb.AppendLine("Fichier source (OCR) : $name")
+        [void]$sb.AppendLine("Source file (OCR): $name")
         [void]$sb.AppendLine()
     }
 
@@ -946,45 +987,64 @@ function Convert-Pdf {
             $bases[$i]     = Join-Path $tmpDir ("page-{0:D4}" -f $pageNo)
         }
         Write-Progress -Activity "1/3 Rasterisation : $name" -Completed
-        Write-Host ("  1/3 Rasterisation  : {0} page(s) en {1:N0} s" -f $pageCount, $sw.Elapsed.TotalSeconds) -ForegroundColor DarkGray
+        Write-Host ("  1/3 Rasterisation  : {0} page(s) in {1:N0} s" -f $pageCount, $sw.Elapsed.TotalSeconds) -ForegroundColor DarkGray
 
         # === Phase 2: clean, in parallel inside C# ============================
         # A page that fails cleaning falls back to its raw image rather than
         # being lost.
         if ($CleanImages) {
             $sw.Restart()
-            Write-Progress -Activity "2/3 Nettoyage image : $name" -Status "$pageCount page(s), $Threads thread(s)"
             $cleanPaths = New-Object string[] $pageCount
             for ($i = 0; $i -lt $pageCount; $i++) {
                 $cleanPaths[$i] = Join-Path $tmpDir ("page-{0:D4}-clean.png" -f ($i + 1))
             }
-            $results = [OcrClean]::ProcessBatch($rawImgs, $cleanPaths, [double]$Dpi, $Threads)
+            # Cleaning runs in-process (System.Drawing/GDI+ Bitmaps), unlike
+            # OCR which is one child process per page: GDI+ has its own,
+            # separate resource limits and gets unreliable well before
+            # -Threads worth of CPU cores would justify it (~150 MB per
+            # concurrent page at 400 dpi besides). Capped at cores/3
+            # (same conservative default as -Threads), never above whatever
+            # -Threads was explicitly set to.
+            $cleanThreads = [math]::Min($Threads, [math]::Max(1, [int]([Environment]::ProcessorCount / 3)))
+            # ProcessBatch blocks until every page is done, so it runs on a
+            # background task while this thread polls progress from disk:
+            # WritePng() writes the *-clean.png file as the last step of each
+            # page, so counting them approximates how many pages are done.
+            $cleanTask = [OcrClean]::ProcessBatchAsync($rawImgs, $cleanPaths, [double]$Dpi, $cleanThreads)
+            while (-not $cleanTask.IsCompleted) {
+                $doneCount = (Get-ChildItem -LiteralPath $tmpDir -Filter '*-clean.png' -File -ErrorAction SilentlyContinue).Count
+                Write-Progress -Activity "2/3 Image cleaning : $name" `
+                    -Status "$doneCount / $pageCount page(s), $cleanThreads thread(s)" `
+                    -PercentComplete ([int](100 * $doneCount / $pageCount))
+                Start-Sleep -Milliseconds 100
+            }
+            $results = $cleanTask.GetAwaiter().GetResult()
             for ($i = 0; $i -lt $pageCount; $i++) {
                 $parts = $results[$i] -split '\|'
                 if ($parts[0] -eq 'ERR') {
-                    Write-Warning "Nettoyage impossible page $($i + 1) ($($parts[1])) - image brute utilisee."
-                    $cleanInfos[$i] = ' | nettoyage KO'
+                    Write-Warning "Cleaning failed on page $($i + 1) ($($parts[1])) - using the raw image instead."
+                    $cleanInfos[$i] = ' | cleaning failed'
                 }
                 else {
                     $ocrInputs[$i]  = $cleanPaths[$i]
                     $cleanInfos[$i] = " | skew $($parts[0])deg, $($parts[1]) blobs"
                 }
             }
-            Write-Progress -Activity "2/3 Nettoyage image : $name" -Completed
-            Write-Host ("  2/3 Nettoyage      : {0:N0} s ({1} thread(s))" -f $sw.Elapsed.TotalSeconds, $Threads) -ForegroundColor DarkGray
+            Write-Progress -Activity "2/3 Image cleaning : $name" -Completed
+            Write-Host ("  2/3 Cleaning       : {0:N0} s ({1} thread(s))" -f $sw.Elapsed.TotalSeconds, $cleanThreads) -ForegroundColor DarkGray
         }
 
         # === Phase 3: OCR, one process per page, -Threads at a time ==========
         $sw.Restart()
         $failedPages = Invoke-TesseractPool -Inputs $ocrInputs -Bases $bases `
             -MaxConcurrent $Threads -Activity "3/3 OCR : $name"
-        Write-Host ("  3/3 OCR            : {0:N0} s ({1} processus concurrents)" -f $sw.Elapsed.TotalSeconds, $Threads) -ForegroundColor DarkGray
+        Write-Host ("  3/3 OCR            : {0:N0} s ({1} concurrent process(es))" -f $sw.Elapsed.TotalSeconds, $Threads) -ForegroundColor DarkGray
         if ($failedPages.Count -gt 0) {
             # Surface what tesseract actually said on the first failure rather
             # than just its exit code.
             $detail = Get-FileTextSafe ($bases[$failedPages[0] - 1] + '.err')
-            if (-not $detail) { $detail = '(aucun message sur stderr)' }
-            throw "Tesseract a echoue sur $($failedPages.Count) page(s) : $($failedPages -join ', '). Page $($failedPages[0]) : $detail"
+            if (-not $detail) { $detail = '(no message on stderr)' }
+            throw "Tesseract failed on $($failedPages.Count) page(s): $($failedPages -join ', '). Page $($failedPages[0]): $detail"
         }
 
         # === Phase 4: parse the hOCR and assemble, serially ==================
@@ -997,9 +1057,9 @@ function Convert-Pdf {
 
             if ($res.IsFigure) {
                 $sumFigures++
-                [void]$sb.AppendLine("===== Page $pageNo / $pageCount (figure ou page vide - non OCRisee) =====")
+                [void]$sb.AppendLine("===== Page $pageNo / $pageCount (figure or blank page - not OCRed) =====")
                 [void]$sb.AppendLine()
-                Write-Host ("    [{0,3}/{1}] figure / page vide ignoree{2}" -f $pageNo, $pageCount, $cleanInfos[$i]) -ForegroundColor DarkYellow
+                Write-Host ("    [{0,3}/{1}] figure / blank page skipped{2}" -f $pageNo, $pageCount, $cleanInfos[$i]) -ForegroundColor DarkYellow
                 continue
             }
 
@@ -1007,26 +1067,26 @@ function Convert-Pdf {
             [void]$sb.AppendLine($res.Text)
             [void]$sb.AppendLine()
 
-            $wordNote = if ($res.DroppedWords -gt 0) { ", $($res.DroppedWords) mot(s) nettoye(s)" } else { '' }
-            Write-Host ("    [{0,3}/{1}] OK : {2} car., {3} titre(s), {4} ligne(s) rejetee(s){5}{6}" -f `
+            $wordNote = if ($res.DroppedWords -gt 0) { ", $($res.DroppedWords) word(s) cleaned" } else { '' }
+            Write-Host ("    [{0,3}/{1}] OK: {2} char., {3} heading(s), {4} line(s) rejected{5}{6}" -f `
                     $pageNo, $pageCount, $res.Text.Length, $res.Headings, $res.Dropped, $wordNote, $cleanInfos[$i]) -ForegroundColor Green
         }
 
         [System.IO.File]::WriteAllText($OutFull, $sb.ToString(), $utf8)
-        Write-Host ("  Total : {0:N0} s" -f $swAll.Elapsed.TotalSeconds) -ForegroundColor DarkGray
-        Write-Host ("  Bilan : {0} ligne(s) de bruit rejetee(s), {1} mot(s) isole(s) nettoye(s), {2} titre(s) detecte(s), {3} page(s) figure ecartee(s)." -f `
+        Write-Host ("  Total: {0:N0} s" -f $swAll.Elapsed.TotalSeconds) -ForegroundColor DarkGray
+        Write-Host ("  Summary: {0} noisy line(s) rejected, {1} isolated word(s) cleaned, {2} heading(s) detected, {3} figure page(s) skipped." -f `
                 $sumDropped, $sumDroppedWords, $sumHeadings, $sumFigures) -ForegroundColor DarkGray
         Write-Host "  -> $OutFull" -ForegroundColor Green
     }
     finally {
-        if ($KeepImages) { Write-Host "  Fichiers intermediaires conserves : $tmpDir" -ForegroundColor DarkGray }
+        if ($KeepImages) { Write-Host "  Intermediate files kept: $tmpDir" -ForegroundColor DarkGray }
         else { Remove-Item -LiteralPath $tmpDir -Recurse -Force -ErrorAction SilentlyContinue }
     }
 }
 
 # --- Main loop --------------------------------------------------------------
 $total = $pdfFiles.Count
-if ($total -gt 1) { Write-Host "$total fichier(s) PDF a convertir." -ForegroundColor Cyan }
+if ($total -gt 1) { Write-Host "$total PDF file(s) to convert." -ForegroundColor Cyan }
 
 $ok = 0; $ko = 0
 for ($f = 0; $f -lt $total; $f++) {
@@ -1034,8 +1094,25 @@ for ($f = 0; $f -lt $total; $f++) {
     if ($isDirectory -or -not $OutputPath) {
         $out = [System.IO.Path]::ChangeExtension($pdf.FullName, '.txt')
     }
-    else {
+    elseif ([System.IO.Path]::IsPathRooted($OutputPath)) {
         $out = [System.IO.Path]::GetFullPath($OutputPath)
+    }
+    else {
+        # A relative -OutputPath is resolved against PowerShell's own location
+        # ($PWD / Get-Location) - the same base Get-Item uses to resolve
+        # -Path. Plain GetFullPath($OutputPath) would instead consult .NET's
+        # own current-directory tracking, which is not guaranteed to follow
+        # Set-Location/cd in every host, so an "identical" relative
+        # -OutputPath could silently resolve against a stale base and land
+        # in a different folder than -Path did.
+        $out = [System.IO.Path]::GetFullPath((Join-Path (Get-Location).Path $OutputPath))
+    }
+
+    # Fail fast on a missing output directory rather than discovering it only
+    # after the OCR work (rasterisation + cleaning + Tesseract) has run.
+    $outDir = [System.IO.Path]::GetDirectoryName($out)
+    if ($outDir -and -not (Test-Path -LiteralPath $outDir)) {
+        New-Item -ItemType Directory -Path $outDir -Force | Out-Null
     }
 
     try {
@@ -1044,9 +1121,9 @@ for ($f = 0; $f -lt $total; $f++) {
     }
     catch {
         $ko++
-        Write-Warning "Echec sur $($pdf.Name) : $($_.Exception.Message)"
+        Write-Warning "Failed on $($pdf.Name): $($_.Exception.Message)"
     }
 }
 
 Write-Host ""
-Write-Host "Termine : $ok reussi(s), $ko echec(s)." -ForegroundColor $(if ($ko) { 'Yellow' } else { 'Green' })
+Write-Host "Done: $ok succeeded, $ko failed." -ForegroundColor $(if ($ko) { 'Yellow' } else { 'Green' })
