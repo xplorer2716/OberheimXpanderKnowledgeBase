@@ -1,12 +1,12 @@
-# Oberheim Xpander — Owners Manual (révisé)
+# Oberheim Xpander — Owners Manual (revised)
 
-- Source : `Oberheim Xpander Owners Manual.pdf` (69 pages, édition originale, juin 1984, par Daniel Sofer)
-- Méthode : voir [`ocr/wip/Oberheim Xpander Owners Manual.agentic-conversion-instructions.md`](Oberheim%20Xpander%20Owners%20Manual.agentic-conversion-instructions.md)
-- **État : document complet, 69/69 pages traitées.**
-- Passes appliquées : Passe 1 (squelette, validé sur les images des p.3-5 imprimées = sommaire) + Passe 2 (correction ancrée image) pour la totalité des 69 pages. Passe 3 (relecture à froid) : voir `review-summary.md` pour la liste des passages encore marqués `[?...?]`.
-- Convention de numérotation : les titres ci-dessous citent le **numéro de page imprimé** (bas de page du manuel) quand il existe ; le nom de fichier des images et le changelog utilisent l'**index image/PDF** (`page-00NN.png`, 1 à 69), qui ne coïncide pas toujours avec le numéro imprimé (pages de planches sans folio — voir résumé).
+- Source: `Oberheim Xpander Owners Manual.pdf` (69 pages, original edition, June 1984, by Daniel Sofer)
+- Method: see [`ocr/wip/Oberheim Xpander Owners Manual.agentic-conversion-instructions.md`](Oberheim%20Xpander%20Owners%20Manual.agentic-conversion-instructions.md)
+- **Status: complete document, 69/69 pages processed.**
+- Passes applied: Pass 1 (skeleton, validated against the images of printed pages 3-5 = table of contents) + Pass 2 (image-anchored correction) for all 69 pages. Pass 3 (cold re-read): see `review-summary.md` for the list of passages still marked `[?...?]`.
+- Numbering convention: the headings below cite the **printed page number** (manual footer) where one exists; image filenames and the changelog use the **image/PDF index** (`page-00NN.png`, 1 to 69), which does not always match the printed number (unnumbered plate pages — see summary).
 
-## Table des matières (validée sur les images p.3, p.4, p.5 imprimées)
+## Table of Contents (validated against the images of printed pages 3, 4, 5)
 
 - [Welcome to the Xpander](#welcome-to-the-xpander) — p.5
 - [Taming The Beast ("How Do I Work This?")](#taming-the-beast-how-do-i-work-this) — p.6
@@ -47,7 +47,7 @@
 
 ## Welcome to the Xpander
 
-*(page-0006.png, p.5 imprimée)*
+*(page-0006.png, printed p.5)*
 
 The Oberheim Xpander combines major innovations in analog and digital hardware with computer software, resulting in a compact, easy to use instrument with vast capabilities.
 
@@ -69,13 +69,13 @@ Experiment! You'll never know what you'll discover.
 
 ## Taming The Beast ("How Do I Work This?")
 
-![Photo du panneau avant de l'Xpander, page d'ouverture de chapitre](images/p07-front-panel-photo.jpg)
+![Photo of the Xpander's front panel, chapter-opening page](images/p07-front-panel-photo.jpg)
 
-*(page-0007.png, planche pleine page sans folio — photo d'ouverture de chapitre, aucun texte)*
+*(page-0007.png, full-page plate with no folio — chapter-opening photo, no text)*
 
-*(page-0008.png, p.7 imprimée — page d'ouverture stylisée : titre du chapitre + index visuel des sections, reproduit ci-dessous tel qu'imprimé, ce n'est pas de la prose courante)*
+*(page-0008.png, printed p.7 — stylized opening page: chapter title + visual section index, reproduced below as printed; this is not running prose)*
 
-Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
+Section index for this chapter (as printed on the opening page):
 
 - **8** Plug It In — Power, Sound System, Controller
 - **9** Picture This — Hookup Diagram, Rear Panel Diagram, Front Panel Picture
@@ -84,12 +84,12 @@ Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
 - **14** Knobs And Buttons
 
 ```changelog
-8:1 | OCR brut fortement désordonné sur cette page décorative ("# Work Th's?")", fragments dupliqués/inversés) -> reconstruit directement depuis l'image (mise en page réelle : titre + colonne d'index) | confidence high
+8:1 | raw OCR heavily scrambled on this decorative page ("# Work Th's?")", duplicated/reversed fragments) -> reconstructed directly from the image (actual layout: title + index column) | confidence high
 ```
 
 ### Plug It In
 
-*(page-0009.png, p.8 imprimée)*
+*(page-0009.png, printed p.8)*
 
 You need three things before you can get any sound out of the Xpander:
 
@@ -121,21 +121,21 @@ To operate the Xpander using Control Voltages and Gate Outputs from the Oberheim
 
 ### Picture This
 
-*(page-0010.png, p.9 imprimée)*
+*(page-0010.png, printed p.9)*
 
 #### Hookup Diagram
 
-![Schéma de branchement : Xpander relié à un Mixer/Amp, deux enceintes, un séquenceur DSX et un clavier MIDI](images/p10-hookup-diagram.png)
+![Hookup diagram: Xpander connected to a Mixer/Amp, two speakers, a DSX sequencer, and a MIDI keyboard](images/p10-hookup-diagram.png)
 
-Labels du schéma (transcription directe de l'image) : Mixer/Amp · CV/Gates Out · DSX Digital Sequencer · MIDI Out · Power In · Audio Out · CV/Gates In · MIDI In · Oberheim Xpander. Le clavier MIDI et les deux boîtes en pointillés (OB-8, DMX Drum Machine) illustrent des sources MIDI alternatives, non câblées sur ce schéma (traits en pointillés).
+Diagram labels (transcribed directly from the image): Mixer/Amp · CV/Gates Out · DSX Digital Sequencer · MIDI Out · Power In · Audio Out · CV/Gates In · MIDI In · Oberheim Xpander. The MIDI keyboard and the two dashed boxes (OB-8, DMX Drum Machine) illustrate alternative MIDI sources, not wired in this diagram (dashed lines).
 
-*(page-0011.png, planche sans folio, à la suite de "Picture This")*
+*(page-0011.png, unnumbered plate, following "Picture This")*
 
 #### Rear Panel Diagram
 
-![Schéma du panneau arrière avec toutes les connexions annotées](images/p11-rear-panel-diagram.png)
+![Rear panel diagram with all connections labeled](images/p11-rear-panel-diagram.png)
 
-Labels du schéma (transcription directe de l'image, confiance haute) :
+Diagram labels (transcribed directly from the image, high confidence):
 - **Cassette Interface** — Input/Output for data storage
 - **MIDI** — In/Out/Thru; Any voice can be assigned to any channel
 - **Memory Protect** — Prevents changing stored patches
@@ -150,14 +150,14 @@ Labels du schéma (transcription directe de l'image, confiance haute) :
 - **Power Switch** — On/Off
 
 ```changelog
-11:1 | OCR brut ("Advance Chain... Any voice can be assigned paws ta any channel... 115 or 230 tor local power") -> texte reconstruit label par label depuis l'image | confidence high
+11:1 | raw OCR ("Advance Chain... Any voice can be assigned paws ta any channel... 115 or 230 tor local power") -> text reconstructed label by label from the image | confidence high
 ```
 
-*(page-0012.png, planche sans folio, correspond à "Front Panel Picture", p.10 selon le sommaire)*
+*(page-0012.png, unnumbered plate, corresponds to "Front Panel Picture", p.10 per the table of contents)*
 
 #### Front Panel Picture
 
-![Panneau avant annoté : Master, Programmer, Modulation Source/X Select, Page Modifier, Single/Multi Patch Page Select](images/p12-front-panel-diagram.png)
+![Annotated front panel: Master, Programmer, Modulation Source/X Select, Page Modifier, Single/Multi Patch Page Select](images/p12-front-panel-diagram.png)
 
 The Xpander's front panel is divided into five sections:
 
@@ -172,13 +172,13 @@ The Xpander's front panel is divided into five sections:
 **Single/Multi Patch Page Select** — The buttons in this section select the desired Single Patch or Multi Patch page. The block diagrams show the available controls and modulations on the different pages. The LEDs adjacent to the buttons show which page is currently selected; the last eight digits of the Programmer section display read out the name of the page currently being displayed.
 
 ```changelog
-12:1 | OCR brut désordonné (callouts Page Modifier/Modulation Source lus avant Master Section, "Modulation Source/. Select" tronqué, "erators" orphelin de "Generators") -> réordonné et complété depuis l'image, dans l'ordre réel gauche->droite | confidence high
+12:1 | raw OCR scrambled (Page Modifier/Modulation Source callouts read before Master Section, "Modulation Source/. Select" truncated, "erators" orphaned from "Generators") -> reordered and completed from the image, in actual left-to-right order | confidence high
 12:4 | "1s where the action 1s." -> "is where the action is." | confidence high
 ```
 
 ### Check It Out
 
-*(page-0013.png, p.11 imprimée)*
+*(page-0013.png, printed p.11)*
 
 #### Tune It Up
 
@@ -208,7 +208,7 @@ Programs are selected in the Programmer section of the Xpander. On the Programme
 
 Once in the desired mode (Multi), pressing two digits on the Programmer Keypad selects a new Multi Patch.
 
-*(page-0014.png, p.12 imprimée)*
+*(page-0014.png, printed p.12)*
 
 ##### Auditioning Multi Patches
 Select Multi Patch 40. The programmer display should show "M40 MODULA1" which is the number and name of this multi patch. This patch plays itself, modulating through all sorts of permutations. Some of the other patches in the 40s (M41, M42, etc.) show off some of the richness and flexibility that the Xpander is capable of. Try some of these patches by pressing "41," then "42," etc. You can also advance to the next patch by pressing the "+" or "−" keys.
@@ -231,7 +231,7 @@ We'll get more into the Master Multi Page (and all the other ones) later...
 In Single Patch mode all voices play one sound. These sounds can be selected by using the Programmer Keypad, the same as in Multi Patch mode. Play the different patches to hear some of the individual sounds of the Xpander. Some of these patches will play themselves just as with the Multi Patches.
 
 ```changelog
-13:4 | "0" equals A=440Hz." + and" "is flat. The tuming range 31)" -> "0" equals A=440Hz, "+" is sharp, and "−" is flat. The tuning range ([?±?]31)" | confidence medium (symbole avant "31" non identifié avec certitude sur l'image, chiffre "31" lisible)
+13:4 | "0" equals A=440Hz." + and" "is flat. The tuming range 31)" -> "0" equals A=440Hz, "+" is sharp, and "−" is flat. The tuning range ([?±?]31)" | confidence medium (symbol before "31" not identified with certainty on the image, digits "31" legible)
 13:9 | "tune it. instead of "ALL"" -> "VCOS" instead of "ALL."" | confidence high
 14:1 | "show oft some of the and flexibility" -> "show off some of the richness and flexibility" | confidence high
 14:6 | "It 1s set to receive" -> "it is set to receive" | confidence high
@@ -239,7 +239,7 @@ In Single Patch mode all voices play one sound. These sounds can be selected by 
 
 ### Page Theory
 
-*(page-0015.png, p.13 imprimée)*
+*(page-0015.png, printed p.13)*
 
 With an instrument as sophisticated as the Xpander, it becomes impractical to have an individual control for every function in the synthesizer, because the result would be too many knobs. So the Xpander utilizes six sets of controls, grouped into a system of "pages," to control its various functions. This way, all the controls for one section of the synthesizer are accessible at once in the Page Modifier section of the synthesizer. The name of the selected page is always shown on the right side of the Programmer display.
 
@@ -264,7 +264,7 @@ Multi Patch pages are also chosen with the buttons on the right side of the fron
 
 ### Knobs And Buttons
 
-*(page-0016.png, p.14 imprimée)*
+*(page-0016.png, printed p.14)*
 
 #### Other Pages
 There are four other kinds of pages in the Xpander:
@@ -288,27 +288,27 @@ Generally, the names of the controls are on the top display in the Page Modifier
 **Either/Or Switches** change name when pressed. These switched are always ON one way or the other, so they are always underlined. These can also be selected by turning the knob below the switch.
 
 ```changelog
-16:1 | pas de correction nécessaire, page nette | confidence high
+16:1 | no correction needed, clean page | confidence high
 ```
 
 ---
 
 ## Programmed Xcellence
 
-![Photo de l'écran du Programmer (affichage patch/nom/voix/page courante)](images/p17-programmer-display.jpg)
+![Photo of the Programmer display (patch/name/voice/current page readout)](images/p17-programmer-display.jpg)
 
-*(page-0017.png, planche pleine page sans folio — photo d'ouverture de chapitre)*
+*(page-0017.png, full-page plate with no folio — chapter-opening photo)*
 
-*(page-0018.png, p.17 imprimée — page d'ouverture avec index visuel du chapitre)*
+*(page-0018.png, printed p.17 — opening page with the chapter's visual index)*
 
-Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
+Section index for this chapter (as printed on the opening page):
 
 - **18** Using The Programmer — Selecting Single Or Multi Patch Mode, Selecting Patches, Editing Patches (Comparing The Edited and Unedited Patch), Storing Patches, Selecting And Editing Patches While In Multi Patch Mode (Copying a Patch From One Voice To Another, Editing Several Voices Simultaneously)
 - **19** Getting Back To Square One — Master Reset
 
 ### Using The Programmer
 
-*(page-0019.png, p.18 imprimée)*
+*(page-0019.png, printed p.18)*
 
 The Programmer Section of the Xpander is used to select and store patches. The Programmer display also provides information about the status of the machine.
 
@@ -342,7 +342,7 @@ Selecting an individual voice causes the Xpander to enter Single Patch mode for 
 
 You can switch among the six voices' Single Patches with the PATCH EDIT buttons. The underline in the display shows your current location, and the dot to the right of each patch number indicates if that patch has been edited.
 
-*(page-0020.png, p.19 imprimée)*
+*(page-0020.png, printed p.19)*
 
 ##### Copying a Patch From One Voice To Another
 
@@ -369,7 +369,7 @@ There is also a way to reset everything except patches: Turn the power off, then
 ```changelog
 19:1 | "the underline will move" corrections and headings reconstructed from image (raw OCR had these two pages heavily merged/reordered) | confidence high
 20:5 | "there a basic patch (called indelibly etched" -> "there is a basic patch (called "OBERHEIM") indelibly etched" | confidence high
-20:6 | "in any Single Patch" (OCR truncated) -> "in any Single Patch location." | confidence medium (mot de fin de ligne reconstruit par continuite grammaticale, confirme visuellement)
+20:6 | "in any Single Patch" (OCR truncated) -> "in any Single Patch location." | confidence medium (end-of-line word reconstructed by grammatical continuity, visually confirmed)
 ```
 
 
@@ -377,13 +377,13 @@ There is also a way to reset everything except patches: Turn the power off, then
 
 ## Creative Input / The Xpanded Voice
 
-![Single Patch Page Map : schéma complet des sources et destinations de modulation](images/p21-single-patch-page-map.png)
+![Single Patch Page Map: full diagram of modulation sources and destinations](images/p21-single-patch-page-map.png)
 
-*(page-0021.png, planche pleine page sans folio — "Single Patch Page Map", ouverture de chapitre)*
+*(page-0021.png, full-page plate with no folio — "Single Patch Page Map", chapter opener)*
 
-*(page-0022.png, p.21 imprimée — page d'ouverture avec index visuel du chapitre)*
+*(page-0022.png, printed p.21 — opening page with the chapter's visual index)*
 
-Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
+Section index for this chapter (as printed on the opening page):
 
 - **23** VCO1 and VCO2 — Page 2 Controls
 - **25** VCF/VCA — The Xpanded Filter
@@ -397,7 +397,7 @@ Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
 
 ### Single Patch Pages
 
-*(page-0023.png, p.22 imprimée)*
+*(page-0023.png, printed p.22)*
 
 The Xpander voice can be divided into two parts:
 
@@ -416,12 +416,12 @@ There are nine main Single Patch Pages. These are selected with the nine buttons
 When one of the Single Patch Pages is selected, the LED next to the button in the block diagram will light and the name of the page will appear on the "current page" section of the Programmer display. The functions associated with this page are displayed on the Page Modifier displays.
 
 ```changelog
-23:9 | "we can use to connect one module to another" -> "we can use [the Programmer] to connect one module to another" | confidence medium ([?texte manquant?] — l'image confirme une coupure de phrase a cet endroit mais le mot exact reliant "use" et "to connect" n'est pas visible sur le scan; marque a titre indicatif, sens general non affecte)
+23:9 | "we can use to connect one module to another" -> left as "[?...?]" | confidence medium (a sentence break is confirmed at this spot on the image, but the exact word connecting "use" and "to connect" is not legible on the scan; flagged rather than guessed, general meaning unaffected)
 ```
 
 ### VCO1 and VCO2
 
-*(page-0024.png, p.23 imprimée)*
+*(page-0024.png, printed p.23)*
 
 The VCOs (oscillators) generate the sound of the Xpander. Press the VCO1 page button. "VCO1" will show on the right side of the Programmer display, and this display will appear in the Page Modifier section:
 
@@ -437,9 +437,9 @@ There are two pages of controls for each VCO. You have just accessed the first p
 
 The frequency, pulse width, and volume of the oscillator can be modulated by other sources. See the section on Modulation Pages.
 
-*(page-0025.png, p.24 imprimée)*
+*(page-0025.png, printed p.24)*
 
-![Formes d'onde de l'oscillateur : Sawtooth, Triangle, Pulse (31=Square), Pulse (15=Narrow)](images/p25-vco-waveforms.png)
+![Oscillator waveforms: Sawtooth, Triangle, Pulse (31=Square), Pulse (15=Narrow)](images/p25-vco-waveforms.png)
 
 #### Page 2 Controls
 
@@ -464,13 +464,13 @@ SYNC (VCO2 only) / Makes VCO2 have the same pitch as VCO1. Changing the frequenc
 The drawings at left show what the different waves look like. The width of the Pulse wave is controlled with the PW control on page 1. See the Synthesthesia Section for more information about the different waveforms and their uses.
 
 ```changelog
-24:1 | page nette, aucune correction significative | confidence high
+24:1 | clean page, no significant correction | confidence high
 25:1 | "The drawings at left show what the different waves 100k like" -> "...look like" | confidence high
 ```
 
 ### VCF/VCA
 
-*(page-0026.png, p.25 imprimée)*
+*(page-0026.png, printed p.25)*
 
 This page contains the controls for the filter as well as two output amplifiers. There are two pages of controls for the filter. You have just accessed the first page. The top display in the page modifier section shows the names of the controls, which are from left:
 
@@ -484,9 +484,9 @@ This page contains the controls for the filter as well as two output amplifiers.
 
 The frequency and resonance of the filter, and both VCAs can be modulated by other sources. These modulations are quite important in achieving the desired sound character. See the section on Modulation Pages.
 
-*(page-0027.png, p.26 imprimée)*
+*(page-0027.png, printed p.26)*
 
-![8 diagrammes des modes de filtre : Low Pass, High Pass, Band Pass, Notch, Phase, High+Low, Notch+Low, Phase+Low](images/p27-filter-mode-diagrams.png)
+![8 filter mode diagrams: Low Pass, High Pass, Band Pass, Notch, Phase, High+Low, Notch+Low, Phase+Low](images/p27-filter-mode-diagrams.png)
 
 #### Page 2
 
@@ -522,9 +522,9 @@ Understanding these different modes is really quite simple.
 
 The low pass modes filter out the high frequencies; that is, they let the low frequencies pass through. The high pass modes do just the opposite; they cut off the low frequencies and let the high frequencies pass. The band pass modes combine these two functions; they filter out the extreme highs and extreme lows, letting only a band in the middle pass through. The notch, or band reject modes do the opposite of the band pass: they let through the extreme highs & lows and filter out the middle. This type is called a notch because it cuts a notch into the middle of the frequency spectrum. The last mode, phase, is unusual because it lets all frequencies pass through. But it changes the phase as the sound passes through it. Changing the filter frequency shifts the phase. An LFO is especially good for this.
 
-*(page-0028.png, p.27 imprimée)*
+*(page-0028.png, printed p.27)*
 
-![Graphe comparatif des pentes de coupure : 1, 2, 3 et 4 pôles](images/p28-filter-pole-comparison.png)
+![Comparative graph of filter cutoff slopes: 1, 2, 3 and 4 poles](images/p28-filter-pole-comparison.png)
 
 The number of poles of a filter affects the rolloff, how sharply the filter cuts off. In technical terms, each pole of the filter attenuates (reduces the volume of) frequencies beyond the filter point by 6dB per octave.
 
@@ -540,16 +540,16 @@ If the initial amplitude of both VCAs are up, the sound of the voice will always
 
 ```changelog
 26:2 | "cutoff frequency or the frequency" -> "cutoff frequency, or the frequency" | confidence high
-27:1 | reconstruction de la liste "filter modes" depuis l'image (OCR fusionnait plusieurs lignes : "2 and 3 pole high pass 1 pole low pass 2 pole notch + 1 pole low pass" scinde en deux entrees) | confidence high
+27:1 | reconstruction of the "filter modes" list from the image (raw OCR merged several lines: "2 and 3 pole high pass 1 pole low pass 2 pole notch + 1 pole low pass" split into two entries) | confidence high
 27:2 | "tt lets all frequencies" -> "it lets all frequencies" | confidence high
-28:1 | "Lomparative filtering effects..." (legende d'illustration, non reprise telle quelle, remplacee par la description de l'image) | confidence high
-28:3 | "have generally been "invisible"" -> "VCAs have generally been "invisible"" (sujet de phrase retabli) | confidence medium
+28:1 | "Lomparative filtering effects..." (illustration caption, not reproduced as-is, replaced by the image description) | confidence high
+28:3 | "have generally been "invisible"" -> "VCAs have generally been "invisible"" (subject restored) | confidence medium
 28:4 | "It the initial amplitude" -> "If the initial amplitude" | confidence high
 ```
 
 ### FM/LAG
 
-*(page-0029.png, p.28 imprimée)*
+*(page-0029.png, printed p.28)*
 
 There are two functions combined on this page. One is FM or Frequency Modulation, the other is Lag.
 
@@ -579,12 +579,12 @@ For more information about FM, see the Synthesthesia Section of this manual.
 
 ```changelog
 29:1 | "a signal with an instantaneous transitions such as" -> "a signal with an instantaneous transition — such as" | confidence medium
-29:2 | reconstruction du paragraphe "Legato Lag is most useful..." (OCR: "_egato Lag most usetul when voice. Ullizing Legalo Lag requires caretu keyboard technique To cause ali six voices 1a lag requres tha! lwe ve <eys be") | confidence high
+29:2 | reconstruction of the "Legato Lag is most useful..." paragraph (raw OCR: "_egato Lag most usetul when voice. Ullizing Legalo Lag requires caretu keyboard technique To cause ali six voices 1a lag requres tha! lwe ve <eys be") | confidence high
 ```
 
 ### ENV X
 
-*(page-0030.png, p.29 imprimée)*
+*(page-0030.png, printed p.29)*
 
 There are up to five Envelope Generators on each voice. Envelopes are used for changing the parameters of the sound over time. Likely candidates for this kind of function are volume (VCAs), filter frequency and resonance, FM, oscillator frequency (in small amounts gives a detuning effect), pulse width, or LFO volume (modulating the VCA on the LFO page). You can also combine several Envelope Generators to create more complex changes. That's why there are five on each voice.
 
@@ -604,7 +604,7 @@ There are five controls for each envelope, plus yet another VCA to control the o
 
 **DELAY** / The amount of time that the envelope will wait before doing anything, very useful if you want to affect one element of the sound sometime after the sound starts. When the DELAY is set to 0, the envelope attacks right away, without any delay. Play some notes while turning up the delay and see that the time between playing the note and hearing the note gets progressively longer as the DELAY control is turned up. The maximum DELAY is 2.5 seconds.
 
-*(page-0031.png, p.30 imprimée)*
+*(page-0031.png, printed p.30)*
 
 **ATTACK** / The amount of time the envelope will take until it reaches its maximum output level. Setting the ATTACK to 0 will give a sharp edge to the sound (turn the DELAY back to 0); a time of 63 will take 16 seconds or so to get to maximum.
 
@@ -626,9 +626,9 @@ There are five controls for each envelope, plus yet another VCA to control the o
 
 **DADR** / This stands for Delay Attack Decay Release, which means that the envelope will not sustain if DADR is underlined. This has the same [?...?] as if you stopped playing the note as soon as the initial decay had finished. This is useful for percussive timbres.
 
-*(page-0032.png, p.31 imprimée)*
+*(page-0032.png, printed p.31)*
 
-![Diagramme ADSR (Delay/Attack/Decay/Sustain/Release)](images/p32-adsr-envelope.png)
+![ADSR diagram (Delay/Attack/Decay/Sustain/Release)](images/p32-adsr-envelope.png)
 
 **SINGLE-MULTI** / In SINGLE mode, the envelope gets a new gate signal only if not already gated (that is, playing). Slurring notes will not generate new gates.
 
@@ -651,13 +651,13 @@ Oh yes, the VCA (like all VCAs) can be modulated, too.
 Pressing the TUNE PAGE button will cut short any envelopes in progress, if you don't wish to hang around for the above mentioned half hour envelope to finish its cycle.
 
 ```changelog
-30:3 | "This has the same as if you stopped playing" -> "This has the same [effect] as if you stopped playing" | confidence medium ([?effect?] non visible tel quel sur l'image, mot manquant reconstruit par grammaire — sens non affecte)
+30:3 | "This has the same as if you stopped playing" -> left as "This has the same [?...?] as if you stopped playing" | confidence medium (the missing word, likely "effect", is not visible as such on the image; flagged rather than guessed, meaning unaffected)
 31:3 | "If GATED is oft" -> "If GATED is off" | confidence high
 ```
 
 ### LFO X
 
-*(page-0033.png, p.32 imprimée)*
+*(page-0033.png, printed p.32)*
 
 There are also up to five LFOs or Low Frequency Oscillators on each voice. LFOs are used for continuous cyclical modulations like vibrato, tremolo, phasing, and chorusing, to name just a few. Having five LFOs permits unprecedented complexities in the timbre of a sound.
 
@@ -683,9 +683,9 @@ You can switch between LFOs with the X SELECT buttons, if none of the values on 
 
 The speed and amplitude can be modulated (see Modulation Pages).
 
-*(page-0034.png, p.33 imprimée)*
+*(page-0034.png, printed p.33)*
 
-![Formes d'onde du LFO : Triangle, Square, Up Saw, Down Saw, Random, Noise](images/p34-lfo-waveforms.png)
+![LFO waveforms: Triangle, Square, Up Saw, Down Saw, Random, Noise](images/p34-lfo-waveforms.png)
 
 Waveforms: **TRIANGLE** — This is the most common LFO waveform, a smooth up and down, perfect for conventional vibrato and tremolo.
 
@@ -701,7 +701,7 @@ Waveforms: **TRIANGLE** — This is the most common LFO waveform, a smooth up an
 
 **SAMPLE** — The Xpander can sample another source and use that as a waveform. The SPEED controls how often the source is sampled. The SAMPLE control appears to select the sampled source, which can be any of the modulation sources.
 
-![Sampling this wave, at this rate, gives this result — illustration du fonctionnement du mode SAMPLE](images/p34-lfo-sampling.png)
+![Sampling this wave, at this rate, gives this result — illustration of how SAMPLE mode works](images/p34-lfo-sampling.png)
 
 #### Page 2
 
@@ -714,14 +714,14 @@ Waveforms: **TRIANGLE** — This is the most common LFO waveform, a smooth up an
 The speed can be modulated by accessing its Modulation Page (press the SPEED button). Recommended modulation sources are the keyboard so that the speed changes depending on the note played, Velocity so that the speed changes depending upon how hard the note is played, or one of the envelopes so that the speed changes as the note plays. Of course there are many other interesting modulation combinations, like modulating an LFO with itself, so that it changes speed in the course of its cycle. See the Modulation Page Section for more [details].
 
 ```changelog
-33:1 | page nette, aucune correction significative | confidence high
-34:2 | "Good for trills" (fin de phrase reconstruite, coupure de page dans l'OCR brut) | confidence high
-34:3 | "See the Modulation Page Section for more" -> "...for more [details]." | confidence medium (fin de page coupee, mot exact non confirme visuellement)
+33:1 | clean page, no significant correction | confidence high
+34:2 | "Good for trills" (sentence ending reconstructed, page break in raw OCR) | confidence high
+34:3 | "See the Modulation Page Section for more" -> "...for more [details]." | confidence medium (page cut off, exact word not visually confirmed)
 ```
 
 ### TRACK X
 
-*(page-0035.png, p.34 imprimée)*
+*(page-0035.png, printed p.34)*
 
 The Tracking Generators are another of the Xpander's unique features. These enable rescaling of any control source to your personal needs; having the filter open up a bit more in the middle range of the keyboard, for example.
 
@@ -739,11 +739,11 @@ You can switch between Tracking Generators with the X SELECT buttons, if none of
 
 A Tracking Generator divides the control range into five sections. At each of these points, you can define the desired output.
 
-*(page-0036.png, p.35 imprimée)*
+*(page-0036.png, printed p.35)*
 
 The Tracking Generators work in two different ways, depending upon the original source:
 
-![Deux graphes : réponse du Tracking Generator pour une entrée positive (KEYBOARD/ENVELOPE) et pour une entrée positive/négative (LFO/BENDER)](images/p36-tracking-generator-graphs.png)
+![Two graphs: Tracking Generator response for a positive input (KEYBOARD/ENVELOPE) and for a positive/negative input (LFO/BENDER)](images/p36-tracking-generator-graphs.png)
 
 **POSITIVE ONLY** / If the input goes from 0 to 63 (such as keyboard or envelope) the 0 input level appears at POINT 1. Setting the output to 0 results in 0.
 
@@ -758,13 +758,13 @@ Two hip things that can be done with Tracking Generators are:
 2) A variable control such as a Pedal or Velocity (positive inputs) can be turned into a switch with a Tracking Generator, by setting all of the points to 0 except the highest one. Only near the maximum input will anything other than 0 come out of the Tracking Generator. You can patch the Pedal somewhere else in addition to the Tracking Generator, giving you gradual control of one function with the full range of the pedal, while switching on a second function only at the top of the pedal.
 
 ```changelog
-35:1 | page nette | confidence high
-36:1 | reconstruction des deux légendes de graphe depuis l'image (OCR: "rrom a input such as an or BENDER") | confidence high
+35:1 | clean page | confidence high
+36:1 | reconstruction of both graph captions from the image (raw OCR: "rrom a input such as an or BENDER") | confidence high
 ```
 
 ### RAMP X
 
-*(page-0037.png, p.36 imprimée)*
+*(page-0037.png, printed p.36)*
 
 There are up to four Ramp Generators on each voice. Ramps are similar to the attack portion of Envelopes: when triggered they generate a control signal from 0 to 63, in the amount of time set by the RATE control, up to 30 seconds.
 
@@ -778,13 +778,13 @@ Pressing an X SELECT button from 1 to 4 will select that Ramp, or pressing the R
 
 You can switch between Ramps with the X SELECT buttons, if none of the lower display functions are underlined.
 
-![Rate equals ramp time — diagramme de la rampe entre Note On et Note Off](images/p37-ramp-rate-diagram.png)
+![Rate equals ramp time — diagram of the ramp between Note On and Note Off](images/p37-ramp-rate-diagram.png)
 
 #### Operation
 
 Not much to operate on page 1 of a Ramp, just the RAMP RATE. However, the Ramps can operate in several modes which are on page 2. These are the same options as for envelopes.
 
-*(page-0038.png, p.37 imprimée)*
+*(page-0038.png, printed p.37)*
 
 **MULTI / EXTRIG / VIB / GATED**
 
@@ -813,13 +813,13 @@ There are two controls for naming a patch:
 The available characters include English numbers and letters, as well as quotes, brackets and other symbols.
 
 ```changelog
-37:1 | page nette | confidence high
+37:1 | clean page | confidence high
 38:1 | "This triggers the Ramp f the Ramp is gated" -> "...will trigger the Ramp only if the Ramp is gated" | confidence high
 ```
 
 ### Modulation Pages
 
-*(page-0039.png, p.38 imprimée)*
+*(page-0039.png, printed p.38)*
 
 #### Possible Modulation Sources
 
@@ -853,7 +853,7 @@ RAMP X will assign a Ramp Generator as an input. The display will prompt you for
 
 Exactly where the levers, pedals, and pressure come from is set on the MIDI Controls page in the Master Section.
 
-*(page-0040.png, p.39 imprimée)*
+*(page-0040.png, printed p.39)*
 
 #### Selecting Modulation
 
@@ -879,7 +879,7 @@ To remove a modulation source, touch and hold the button underneath the source t
 
 Different effects can be achieved by Quantizing the modulation. Quantizing causes semitone steps instead of a smooth change of an Envelope, LFO, Lever, or other modulation.
 
-To quantize a modulation, press the button under the appropriate amount display (Value X) and press the QUANTIZE button in the X Select section. A [?symbole?] will appear in the display to indicate quantization.
+To quantize a modulation, press the button under the appropriate amount display (Value X) and press the QUANTIZE button in the X Select section. A [?symbol?] will appear in the display to indicate quantization.
 
 ##### Positive/Negative Modulation
 
@@ -891,7 +891,7 @@ A modulation source can be directed to a particular destination more than once f
 
 Note that the control of the modulation amount is exponential, so the numbers don't exactly add up. The higher the number, the larger the amount of change. This enables one control to be used for a coarse range (large numbers) and an additional control used for a fine range (small numbers).
 
-*(page-0041.png, p.40 imprimée)*
+*(page-0041.png, printed p.40)*
 
 ##### Modulation Limitation
 
@@ -904,10 +904,10 @@ Note that this limitation only applies to modulations on Modulation Pages; modul
 Unused modulations can be spotted by watching for the modulation dots next to function names in the display.
 
 ```changelog
-39:1 | "you wish to modulate" reconstitue depuis "notice the Modulation Page Select LED" (texte clair sur image) | confidence high
+39:1 | "you wish to modulate" reconstructed from "notice the Modulation Page Select LED" (clear text on the image) | confidence high
 40:1 | "touch the button underneath the source that you which to change/delete" -> "wish" (x2) | confidence high
-40:2 | "A will appear in the display to indicate quantization" -> "A [Q] will appear..." | confidence medium ([?Q?] non confirme visuellement, symbole d'affichage probable non lisible sur le scan)
-41:1 | "mogulat:on sources on f2age 2... are not counted Theretare you should use the Page 2 lations" -> reconstruction complete du paragraphe depuis le sens et les fragments lisibles | confidence medium
+40:2 | "A will appear in the display to indicate quantization" -> left as "A [?symbol?] will appear..." | confidence medium (the display symbol is not visually confirmed, likely not legible on the scan)
+41:1 | "mogulat:on sources on f2age 2... are not counted Theretare you should use the Page 2 lations" -> full paragraph reconstructed from meaning and legible fragments | confidence medium
 ```
 
 
@@ -915,20 +915,20 @@ Unused modulations can be spotted by watching for the modulation dots next to fu
 
 ## Putting It All Together
 
-![Multi Patch/Master Page Map : schéma des connexions Voice/Pan/Volume/Transpose/CV-MIDI/Zone/MIDI](images/p42-multi-patch-master-page-map.png)
+![Multi Patch/Master Page Map: diagram of the Voice/Pan/Volume/Transpose/CV-MIDI/Zone/MIDI connections](images/p42-multi-patch-master-page-map.png)
 
-*(page-0042.png, planche pleine page sans folio — ouverture de chapitre)*
+*(page-0042.png, full-page plate with no folio — chapter opener)*
 
-*(page-0043.png, p.43 imprimée — page d'ouverture "Putting It All Together / Multi Patches", avec index visuel du chapitre)*
+*(page-0043.png, printed p.43 — opening page "Putting It All Together / Multi Patches", with the chapter's visual index)*
 
-Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
+Section index for this chapter (as printed on the opening page):
 
 - **44** Multi Patch Pages — VOLUME, PAN, TRANSPOSE, VIB (Controls, Page 2), CV/MIDI, ZONES (Input, Limit, Mode, Splits Doubles and Triples), MISC (Naming Patches)
 - **49** Master Pages — MASTER MULTI PAGES, CHAIN (Control Functions), MIDI (Channel, Controls, Enables, Send, Reset, Mute), GATE +/-, CASS, SERVICE PAGES (Voices On/Off, Service, Version)
 
 ### Multi Patch Pages
 
-*(page-0044.png, p.44 imprimée)*
+*(page-0044.png, printed p.44)*
 
 There are six Multi Patch pages, shown in grey on the right side of the front panel. The desired page is accessed by pressing the page select button next to the name of the desired page, while in Multi Patch mode.
 
@@ -942,11 +942,11 @@ The VOLUME page is the "mixer" of the Xpander. On this page, each voice has a vo
 
 This page sets the placement of each voice to the stereo mixed outputs or to the individual outputs. A voice can be panned to one of seven positions within the stereo spread or to its own individual output.
 
-![Schéma PAN : chaque voix peut aller vers une sortie directe individuelle ou vers le mixage stéréo (Left/LF2/LF1/Mid/RT1/RT2/Right)](images/p44-pan-diagram.png)
+![PAN diagram: each voice can go to an individual direct output or to the stereo mix (Left/LF2/LF1/Mid/RT1/RT2/Right)](images/p44-pan-diagram.png)
 
 Note that a voice cannot be sent to the mixed outputs and its own individual output at the same time.
 
-*(page-0045.png, p.45 imprimée)*
+*(page-0045.png, printed p.45)*
 
 #### TRANSPOSE
 
@@ -968,7 +968,7 @@ The VIBrato page contains one LFO that can be used for all of the voices; for vi
 
 **AMP** / The output level of the LFO.
 
-*(page-0046.png, p.46 imprimée)*
+*(page-0046.png, printed p.46)*
 
 ##### Page 2
 
@@ -988,11 +988,11 @@ If you are using the CVs as a controller for the Xpander, and notes in the high 
 
 Note: Older analog keyboards may not be fast enough or stable enough to operate the Xpander properly, and double triggers or lag may result. Turning on CV DEBOUNCE, on Page 2 of the Gate +/− Master Page may eliminate this problem.
 
-*(page-0047.png, p.47 imprimée)*
+*(page-0047.png, printed p.47)*
 
 #### ZONES
 
-![Graphe des notes MIDI (0-127) avec repères clavier, plage OB-8 et Tracking Generator Range](images/p47-zones-keyboard-chart.png)
+![Graph of MIDI notes (0-127) with keyboard markers, OB-8 range, and Tracking Generator Range](images/p47-zones-keyboard-chart.png)
 
 The three Zones are very important because they enable the Xpander to play chords as a six voice synthesizer, rather than as six one-voice synthesizers. Zones operate in conjunction with a MIDI control source. There are three attributes to each Zone, each on its own subpage:
 
@@ -1022,7 +1022,7 @@ When zones overlap, each note will be played by each zone, enabling two or three
 
 Are you starting to realize the fantasy of this machine?
 
-*(page-0048.png, p.48 imprimée)*
+*(page-0048.png, printed p.48)*
 
 #### MISC
 
@@ -1041,15 +1041,15 @@ The available characters include English numbers and letters, as well as quotes,
 The Misc page will have other functions as the Xpander software evolves.
 
 ```changelog
-44:1 | "the placement of each voice to the stereo mixed outputs" reconstruit avec le schema PAN a l'appui | confidence high
+44:1 | "the placement of each voice to the stereo mixed outputs" reconstructed with the help of the PAN diagram | confidence high
 46:1 | "the Control is necessary, on the (ike a DSX)" -> "calibration of the Control Voltages is necessary, either on the controller (like a DSX)" | confidence high
 46:2 | "Turring on CV DEBOUNCEL... Gate + — Masler Page" -> "Turning on CV DEBOUNCE... Gate +/− Master Page" | confidence high
-47:1 | page nette (contenu confirme depuis l'image en detail) | confidence high
+47:1 | clean page (content confirmed against the image in detail) | confidence high
 ```
 
 ### Master Page
 
-*(page-0049.png, p.49 imprimée)*
+*(page-0049.png, printed p.49)*
 
 The Master Page accesses functions that are not remembered as part of a patch, but are used globally (that is, in all modes) by the Xpander.
 
@@ -1083,7 +1083,7 @@ MIDI on the Xpander sets new standards for interface flexibility. The Xpander ca
 
 This selects the basic MIDI channel, used to address the machine as a whole. The basic channel is used for a few Xpander functions, such as PEDAL2 and LEVER2, patch changes, and for converting CVs IN to MIDI OUT. The CV/MIDI and Zone pages are used for most MIDI channel selections on the Xpander.
 
-*(page-0050.png, p.50 imprimée)*
+*(page-0050.png, printed p.50)*
 
 ##### Controls
 
@@ -1115,7 +1115,7 @@ This page contains most of the MIDI options. SYSTEMX, CONTROL, and PATCH must be
 
 **PATCH** turns on MIDI patch changes.
 
-*(page-0051.png, p.51 imprimée)*
+*(page-0051.png, printed p.51)*
 
 **VELOCITY** sets the Xpander's response to MIDI velocity information. Linear response causes the velocity to respond linearly: the output is twice as much when you play twice as hard. Expo 1 makes the response exponential, just as the ear hears: you play twice as hard, and the output is ten times more. Expo 2 is also exponential, but the response is compressed to achieve a more useful range.
 
@@ -1125,7 +1125,7 @@ This page contains most of the MIDI options. SYSTEMX, CONTROL, and PATCH must be
 
 The MIDI default condition is:
 
-| Paramètre | Valeur par défaut |
+| Parameter | Default value |
 |---|---|
 | Basic Channel | 1 |
 | Omni Mode | ON (all zones play all notes on all channels) |
@@ -1159,7 +1159,7 @@ This turns off notes that have been left on accidentally. Once a voice gets a "n
 
 For more information about MIDI, refer to the OBERHEIM XPANDER MIDI SPECIFICATION document.
 
-*(page-0052.png, p.52 imprimée)*
+*(page-0052.png, printed p.52)*
 
 #### GATE +/−
 
@@ -1195,9 +1195,9 @@ This reveals the various software versions currently in your Xpander.
 
 ```changelog
 49:1 | "selecting GLOBAL" (See Cassette Interface.)" -> "selecting "LOAD GLOBAL." (See Cassette Interface.)" | confidence medium
-50:1 | reconstruction du tableau des intervalles Lever1 (OCR: "min 2 = 46 mint = B3" tres degrade) depuis l'image | confidence high
+50:1 | reconstruction of the Lever1 interval table (raw OCR: "min 2 = 46 mint = B3" heavily degraded) from the image | confidence high
 50:2 | "bend each voice trom a MID controler equipped with bend tor each string" -> "bend each voice separately from a MIDI guitar controller equipped with bend for each string" | confidence medium
-52:1 | "gives a gate when the signal "goes high" ... sends a gate when the signal goes low" -> symboles "+"/"−" restitues par coherence avec le titre de section "GATE +/−" (glyphes flous sur l'image, non desambiguises avec certitude) | confidence medium
+52:1 | "gives a gate when the signal "goes high" ... sends a gate when the signal goes low" -> "+"/"−" symbols restored by consistency with the section title "GATE +/−" (glyphs blurry on the image, not disambiguated with certainty) | confidence medium
 ```
 
 
@@ -1205,19 +1205,19 @@ This reveals the various software versions currently in your Xpander.
 
 ## Save It (A Good Investment)
 
-![Panneau CASSETTE MODE : boutons TO CASS / CHECK CASS / FROM CASS](images/p53-cassette-mode-panel.png)
+![CASSETTE MODE panel: TO CASS / CHECK CASS / FROM CASS buttons](images/p53-cassette-mode-panel.png)
 
-*(page-0053.png, planche pleine page sans folio — ouverture de chapitre)*
+*(page-0053.png, full-page plate with no folio — chapter opener)*
 
-*(page-0054.png, p.55 imprimée — page d'ouverture avec index visuel du chapitre)*
+*(page-0054.png, printed p.55 — opening page with the chapter's visual index)*
 
-Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
+Section index for this chapter (as printed on the opening page):
 
 - **56** Learning To Love Your Cassette Interface — Hookup, Access, Save It, Check It, Loading In, Errors (Causes Of Errors, Error Messages)
 
 ### Learning To Love Your Cassette Interface
 
-*(page-0055.png, p.56 imprimée)*
+*(page-0055.png, printed p.56)*
 
 The Xpander Cassette Interface enables off-line tape storage of your patches, on any convenient tape format.
 
@@ -1249,7 +1249,7 @@ When the data transfer has finished, the display will say "DATA COMPLETE" and re
 
 Now all your patches are recorded safely on tape. Or are they? There's only one way to find out:
 
-*(page-0056.png, p.57 imprimée)*
+*(page-0056.png, printed p.57)*
 
 #### Check It
 
@@ -1285,7 +1285,7 @@ The Xpander will again revert to its state of suspended animation (completely da
 
 You can abort the cassette process at any time by pressing the PAGE 2 button.
 
-*(page-0057.png, p.58 imprimée)*
+*(page-0057.png, printed p.58)*
 
 #### Errors
 
@@ -1327,7 +1327,7 @@ While loading from tape, the Xpander checks the cassette data for each patch to 
 
 **ERROR IN PROGRAM DATA** / Error in a program loaded from tape.
 
-*(page-0058.png, p.59 imprimée)*
+*(page-0058.png, printed p.59)*
 
 **NOT AN XPANDER TAPE** / Operator error (this means you!) Only Xpander tapes can be loaded in.
 
@@ -1338,24 +1338,24 @@ While loading from tape, the Xpander checks the cassette data for each patch to 
 **DATA COMPLETE** / 100 hits, 100 runs, no errors.
 
 ```changelog
-55:1 | "with all your find that keeping copies" -> "with all your machines. You'll find that keeping copies" | confidence medium ([?machines?] non totalement confirme visuellement, reconstruction grammaticale)
+55:1 | "with all your find that keeping copies" -> "with all your [?machines?]. You'll find that keeping copies" | confidence medium (not fully confirmed visually, grammatical reconstruction)
 55:2 | "load it back into your Xpander (or anyone for that matter)" -> "...or anyone else's for that matter)" | confidence medium
-56:1 | "The Xpander doesn't hear either" (ellipse idiomatique conservee telle quelle, comprehensible en contexte) | confidence high
+56:1 | "The Xpander doesn't hear either" (idiomatic ellipsis kept as-is, understandable in context) | confidence high
 57:1 | "it's okay... always good (well, anyway.)" -> "...always good (well, valid anyway.)" | confidence medium
-58:1 | page nette | confidence high
+58:1 | clean page | confidence high
 ```
 
 ---
 
 ## Synthesthesia
 
-![Block diagram du "Basic Patch" nommé OBERHEIM : VCO1/VCO2 -> Filter -> VCA1/VCA2, avec ENV1/ENV2](images/p59-basic-patch-diagram.png)
+![Block diagram of the "Basic Patch" named OBERHEIM: VCO1/VCO2 -> Filter -> VCA1/VCA2, with ENV1/ENV2](images/p59-basic-patch-diagram.png)
 
-*(page-0059.png, planche pleine page sans folio — ouverture de chapitre, "Basic Patch / OBERHEIM")*
+*(page-0059.png, full-page plate with no folio — chapter opener, "Basic Patch / OBERHEIM")*
 
-*(page-0060.png, p.61 imprimée — page d'ouverture avec index visuel du chapitre)*
+*(page-0060.png, printed p.61 — opening page with the chapter's visual index)*
 
-Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
+Section index for this chapter (as printed on the opening page):
 
 - **62** Basic Programming Concepts
 - **62** Subtractive Synthesis
@@ -1365,7 +1365,7 @@ Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
 
 ### Basic Programming Concepts
 
-*(page-0061.png, p.62 imprimée)*
+*(page-0061.png, printed p.62)*
 
 This section is a brief description of synthesis techniques, designed as a starting point for realizing your own sounds.
 
@@ -1394,13 +1394,13 @@ We start with an oscillator. No matter whether the oscillator is a room full of 
 Unwanted harmonics are then removed by filtering. Dynamic control of the filter is crucial for flexible synthesis. That is why envelopes, LFOs and other devices are used to control the filter over time.
 
 ```changelog
-61:1 | "Subtractive synthesis starts with complex waveforms" (mot "complex" manquant dans l'OCR brut, restitue depuis l'image) | confidence high
-62:1 | "Square Wave... narrow waves for double reeds" reconstruit sans perte de sens | confidence high
+61:1 | "Subtractive synthesis starts with complex waveforms" (the word "complex" was missing in the raw OCR, restored from the image) | confidence high
+62:1 | "Square Wave... narrow waves for double reeds" reconstructed without loss of meaning | confidence high
 ```
 
 ### FM Synthesis
 
-*(page-0062.png, p.63 imprimée)*
+*(page-0062.png, printed p.63)*
 
 Frequency Modulation, or FM, is a basic analog concept. The evolution of Linear FM as a technique for sound synthesis has become possible in recent years because of major breakthroughs in digital signal processing and oscillator stability.
 
@@ -1434,7 +1434,7 @@ If the frequencies of the two oscillators are not in an exact ratio, some wonder
 
 ### Other Considerations
 
-*(page-0063.png, p.64 imprimée)*
+*(page-0063.png, printed p.64)*
 
 With all styles of synthesis, other aspects of the sound are important besides the timbre. These include the attack and decay of various parameters of the sound, as controlled by the envelopes; and the addition of vibrato controlled with LFOs, etc.
 
@@ -1460,7 +1460,7 @@ Let's detune VCO2, so it's slightly out of tune with VCO1. Press VCO2 and adjust
 
 Go to ENV2 (press ENVX, then 2 in the X Select section) and turn up the RELEASE control (to about 25.) Since ENV2 is modulating VCA2 on the VCF/VCA page, turning up the RELEASE results in the sound dying out slowly when you lift your hands off the keyboard. You can turn up the release time for the filter by going to ENV1 (you can get to ENV1 from ENV2 just by pressing 1 in the X Select section) and turning the RELEASE control (to 20.)
 
-*(page-0064.png, p.65 imprimée)*
+*(page-0064.png, printed p.65)*
 
 We can add some Pulse Width modulation to further texturize the sound. But first we must turn on the pulse waves on the second pages of both oscillators. Press VCO1, then PAGE 2. Touch SAW to turn the sawtooth wave off and PULSE to turn the pulse wave on. Press VCO2, then PAGE 2 for the second oscillator. Touch SAW to turn the sawtooth wave off and PULSE to turn the pulse wave on. Do you hear how the sound is changed by switching waveforms?
 
@@ -1476,7 +1476,7 @@ Save this patch in the Xpander's memory by holding STORE and then entering two d
 
 ```changelog
 63:1 | "Basic Patch... can recalled by holding STORE" -> "...can [be] recalled by holding STORE" | confidence high
-63:2 | "You should hear more "snap" on the beginning of the sound" (OCR: "snap" absent, mot generique [attack] substitue par prudence) -> marque [attack] plutot qu'invente un terme non confirme | confidence medium
+63:2 | "You should hear more "snap" on the beginning of the sound" (raw OCR: "snap" absent; generic placeholder [attack] used out of caution rather than inventing an unconfirmed term) | confidence medium
 64:1 | "Touch SAW to turn the sawtooth wave oft" -> "off" (x2) | confidence high
 ```
 
@@ -1484,16 +1484,16 @@ Save this patch in the Xpander's memory by holding STORE and then entering two d
 
 ## Appendix
 
-*(page-0065.png, p.67 imprimée — page d'ouverture avec index visuel du chapitre)*
+*(page-0065.png, printed p.67 — opening page with the chapter's visual index)*
 
-Index des sections de ce chapitre (tel qu'imprimé sur la page d'ouverture) :
+Section index for this chapter (as printed on the opening page):
 
 - **68** Error Messages
 - **70** MIDI Controllers
 
 ### Error Messages
 
-*(page-0066.png, p.68 imprimée)*
+*(page-0066.png, printed p.68)*
 
 Error messages appear in the Page Modifier display when you ask the Xpander to do something it can't. You can remedy the problem by following the directions, below.
 
@@ -1513,7 +1513,7 @@ Error messages appear in the Page Modifier display when you ask the Xpander to d
 
 **MAXIMUM OF 20 MODULATIONS PER VOICE** / There can be no more than 20 modulations on each voice at one time. Solution: Remove any unused modulations.
 
-*(page-0067.png, p.69 imprimée)*
+*(page-0067.png, printed p.69)*
 
 **RESET MEMORY? (DOESN'T AFFECT PATCHES)** / Translation: "Can we start over?" If you get this message unexpectedly, the Xpander has gotten lost. It won't lose your patches, though. This is equivalent to a "soft boot" on a computer system. If you press NO, the Xpander will continue from where it was. If it's lost, you may get this message again. If you press YES, the Xpander will reset itself to its default condition: "OBERHEIM" Single Patch from its own memory, MIDI Omni Mode On, no transpositions, etc.
 
@@ -1538,13 +1538,13 @@ Error messages appear in the Page Modifier display when you ask the Xpander to d
 **CASSETTE SPEED TOO FAST** / Data tape speed too fast.
 
 ```changelog
-66:1 | page nette | confidence high
-67:1 | page nette | confidence high
+66:1 | clean page | confidence high
+67:1 | clean page | confidence high
 ```
 
 ### MIDI Controllers
 
-*(page-0068.png, p.70 imprimée)*
+*(page-0068.png, printed p.70)*
 
 MIDI (Musical Instrument Digital Interface) provides for the use of various controls in its specifications. The soft controller MIDI implementation of the Xpander allows complete compatibility with any MIDI source.
 
@@ -1558,7 +1558,7 @@ Besides notes, velocity, and patch changes, a wide variety of other control info
 
 The following list provides information about controls used in various MIDI instruments. This list has been compiled based upon information provided to us by other manufacturers and is subject to changes and improvements by them. If your instrument is not on this list, contact its manufacturer about information about its MIDI implementation.
 
-*(page-0069.png, p.71 imprimée)*
+*(page-0069.png, printed p.71)*
 
 #### Common Transmitter MIDI Controller Assignments
 
@@ -1597,10 +1597,10 @@ The following list provides information about controls used in various MIDI inst
 
 2. If you experience problems with After Touch while using DX7, Try assigning Xpander PRESSR to MIDI Controller 3.
 
-> **Annotation manuscrite** (ajoutée à la main sur l'exemplaire numérisé, hors texte imprimé d'origine — transcription prudente) : un ajout mentionne un contrôleur **EWI** (Akai Electronic Wind Instrument) avec des correspondances approximatives : Pitch Bend / AfterTouch / B.C. (Breath Controller) / Volume → Lever 1 ou 2 / Pressure / [?] / [?]. Les deux dernières valeurs numériques manuscrites ne sont pas lisibles avec confiance et sont volontairement omises plutôt que devinées.
+> **Handwritten annotation** (added by hand on the scanned copy, not part of the original printed text — transcribed cautiously): an addition mentions an **EWI** controller (Akai Electronic Wind Instrument) with approximate mappings: Pitch Bend / AfterTouch / B.C. (Breath Controller) / Volume → Lever 1 or 2 / Pressure / [?] / [?]. The last two handwritten numeric values are not legible with confidence and are deliberately omitted rather than guessed.
 
 ```changelog
-68:1 | page nette | confidence high
-69:1 | tableau reconstruit en Markdown depuis le tableau imprime (donnee tabulaire, regle n°5 des instructions) | confidence high
-69:2 | annotation manuscrite EWI transcrite partiellement, deux valeurs numeriques laissees de cote (illisibles avec confiance) | confidence medium
+68:1 | clean page | confidence high
+69:1 | table reconstructed as Markdown from the printed table (tabular data, instructions rule #5) | confidence high
+69:2 | handwritten EWI annotation partially transcribed, two numeric values left out (not legible with confidence) | confidence medium
 ```
