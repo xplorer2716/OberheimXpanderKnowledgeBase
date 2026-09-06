@@ -2,9 +2,8 @@
 
 - Source: `Oberheim Xpander Owners Manual.pdf` (69 pages, original edition, June 1984, by Daniel Sofer)
 - Method: see [`ocr/wip/Oberheim Xpander Owners Manual.agentic-conversion-instructions.md`](Oberheim%20Xpander%20Owners%20Manual.agentic-conversion-instructions.md)
-- **Status: complete document, 69/69 pages processed.**
-- Passes applied: Pass 1 (skeleton, validated against the images of printed pages 3-5 = table of contents) + Pass 2 (image-anchored correction) for all 69 pages. Pass 3 (cold re-read): see `review-summary.md` for the list of passages still marked `[?...?]`.
-- Numbering convention: the headings below cite the **printed page number** (manual footer) where one exists; image filenames and the changelog use the **image/PDF index** (`page-00NN.png`, 1 to 69), which does not always match the printed number (unnumbered plate pages — see summary).
+
+
 
 ## Table of Contents (validated against the images of printed pages 3, 4, 5)
 
@@ -47,7 +46,6 @@
 
 ## Welcome to the Xpander
 
-*(page-0006.png, printed p.5)*
 
 The Oberheim Xpander combines major innovations in analog and digital hardware with computer software, resulting in a compact, easy to use instrument with vast capabilities.
 
@@ -59,21 +57,11 @@ Because the Xpander has features and capabilities never before available, we rec
 
 Experiment! You'll never know what you'll discover.
 
-```changelog
-6:2 | "difterent sound" -> "different sound" | confidence high
-6:4 | "results in unprecedented and sophistication with fewer parts" -> "results in unprecedented flexibility and sophistication with fewer parts" | confidence high
-6:5 | "these new tunctions" -> "these new functions" | confidence high
-```
-
+---
+![Photo of the Xpander's front panel, chapter-opening page](images/p07-front-panel-photo.jpg)
 ---
 
 ## Taming The Beast ("How Do I Work This?")
-
-![Photo of the Xpander's front panel, chapter-opening page](images/p07-front-panel-photo.jpg)
-
-*(page-0007.png, full-page plate with no folio — chapter-opening photo, no text)*
-
-*(page-0008.png, printed p.7 — stylized opening page: chapter title + visual section index, reproduced below as printed; this is not running prose)*
 
 Section index for this chapter (as printed on the opening page):
 
@@ -83,13 +71,9 @@ Section index for this chapter (as printed on the opening page):
 - **13** Page Theory — Primary Pages, Other Pages
 - **14** Knobs And Buttons
 
-```changelog
-8:1 | raw OCR heavily scrambled on this decorative page ("# Work Th's?")", duplicated/reversed fragments) -> reconstructed directly from the image (actual layout: title + index column) | confidence high
-```
 
 ### Plug It In
 
-*(page-0009.png, printed p.8)*
 
 You need three things before you can get any sound out of the Xpander:
 
@@ -110,32 +94,21 @@ To operate the Xpander from a MIDI controller such as an Oberheim OB-8 or Oberhe
 
 To operate the Xpander using Control Voltages and Gate Outputs from the Oberheim DSX Sequencer or other source, connect the Control Voltage and Gate Outputs of your controller to the six pairs of CV/GATE INPUTS on the back of the Xpander.
 
-```changelog
-9:1 | "power on. oft switch" -> "power on/off switch" | confidence high
-9:1 | "100-130 volts or 200-260 volts ("230")" -> "100-130 volts ("115") or 200-260 volts ("230")" | confidence high
-9:3 | "Turn on the Xpander with the power switch... It not, check" -> "...If not, check" | confidence high
-9:4 | "mixed outputs. for now." -> "mixed outputs, for now." | confidence high
-9:6 | "When the Xpander is tirst turned on" -> "...first turned on" | confidence high
-9:7 | "Gate Qutputs of your controller 10 the six pairs of INPUTS" -> "Gate Outputs of your controller to the six pairs of CV/GATE INPUTS" | confidence high
-```
 
 ### Picture This
-
-*(page-0010.png, printed p.9)*
 
 #### Hookup Diagram
 
 ![Hookup diagram: Xpander connected to a Mixer/Amp, two speakers, a DSX sequencer, and a MIDI keyboard](images/p10-hookup-diagram.png)
 
-Diagram labels (transcribed directly from the image): Mixer/Amp · CV/Gates Out · DSX Digital Sequencer · MIDI Out · Power In · Audio Out · CV/Gates In · MIDI In · Oberheim Xpander. The MIDI keyboard and the two dashed boxes (OB-8, DMX Drum Machine) illustrate alternative MIDI sources, not wired in this diagram (dashed lines).
+Diagram labels (transcribed directly from the image): Mixer/Amp · CV/Gates Out · DSX Digital Sequencer · MIDI Out · Power In · Audio Out · CV/Gates In · MIDI In · Oberheim Xpander. The MIDI keyboard and the two dashed boxes (OB-8, DMX Drum Machine) illustrate alternative MIDI devices, not wired in this diagram (dashed lines).
 
-*(page-0011.png, unnumbered plate, following "Picture This")*
 
 #### Rear Panel Diagram
 
 ![Rear panel diagram with all connections labeled](images/p11-rear-panel-diagram.png)
 
-Diagram labels (transcribed directly from the image, high confidence):
+Diagram labels:
 - **Cassette Interface** — Input/Output for data storage
 - **MIDI** — In/Out/Thru; Any voice can be assigned to any channel
 - **Memory Protect** — Prevents changing stored patches
@@ -149,11 +122,6 @@ Diagram labels (transcribed directly from the image, high confidence):
 - **Power Input** — Connect to Grounded Outlet
 - **Power Switch** — On/Off
 
-```changelog
-11:1 | raw OCR ("Advance Chain... Any voice can be assigned paws ta any channel... 115 or 230 tor local power") -> text reconstructed label by label from the image | confidence high
-```
-
-*(page-0012.png, unnumbered plate, corresponds to "Front Panel Picture", p.10 per the table of contents)*
 
 #### Front Panel Picture
 
@@ -171,14 +139,9 @@ The Xpander's front panel is divided into five sections:
 
 **Single/Multi Patch Page Select** — The buttons in this section select the desired Single Patch or Multi Patch page. The block diagrams show the available controls and modulations on the different pages. The LEDs adjacent to the buttons show which page is currently selected; the last eight digits of the Programmer section display read out the name of the page currently being displayed.
 
-```changelog
-12:1 | raw OCR scrambled (Page Modifier/Modulation Source callouts read before Master Section, "Modulation Source/. Select" truncated, "erators" orphaned from "Generators") -> reordered and completed from the image, in actual left-to-right order | confidence high
-12:4 | "1s where the action 1s." -> "is where the action is." | confidence high
-```
 
 ### Check It Out
 
-*(page-0013.png, printed p.11)*
 
 #### Tune It Up
 
@@ -189,7 +152,7 @@ Press TUNE PAGE (in the Master Section) to access the tuning controls.
 This is how the Xpander operates: press a button for a desired page and the controls for that page appear on the displays in the Page Modifier section.
 
 ##### Master Tune
-Look at the Page Modifier section. The third knob is the Master Tune control. Turn it to fine tune the pitch of the Xpander. The lower display shows the master pitch: "0" equals A=440Hz, "+" is sharp, and "−" is flat. The tuning range ([?±?]31) covers a quarter-tone up or down.
+Look at the Page Modifier section. The third knob is the Master Tune control. Turn it to fine tune the pitch of the Xpander. The lower display shows the master pitch: "0" equals A=440Hz, "+" is sharp, and "−" is flat. The tuning range (31) covers a quarter-tone up or down.
 
 ##### Master Transpose
 The sixth knob in the Page Modifier section is the Master Transpose. Turn it to transpose the entire Xpander up or down in semitone steps. You can transpose the Xpander up to two octaves up or three octaves down.
@@ -208,7 +171,6 @@ Programs are selected in the Programmer section of the Xpander. On the Programme
 
 Once in the desired mode (Multi), pressing two digits on the Programmer Keypad selects a new Multi Patch.
 
-*(page-0014.png, printed p.12)*
 
 ##### Auditioning Multi Patches
 Select Multi Patch 40. The programmer display should show "M40 MODULA1" which is the number and name of this multi patch. This patch plays itself, modulating through all sorts of permutations. Some of the other patches in the 40s (M41, M42, etc.) show off some of the richness and flexibility that the Xpander is capable of. Try some of these patches by pressing "41," then "42," etc. You can also advance to the next patch by pressing the "+" or "−" keys.
@@ -230,16 +192,8 @@ We'll get more into the Master Multi Page (and all the other ones) later...
 ##### Playing Patches
 In Single Patch mode all voices play one sound. These sounds can be selected by using the Programmer Keypad, the same as in Multi Patch mode. Play the different patches to hear some of the individual sounds of the Xpander. Some of these patches will play themselves just as with the Multi Patches.
 
-```changelog
-13:4 | "0" equals A=440Hz." + and" "is flat. The tuming range 31)" -> "0" equals A=440Hz, "+" is sharp, and "−" is flat. The tuning range ([?±?]31)" | confidence medium (symbol before "31" not identified with certainty on the image, digits "31" legible)
-13:9 | "tune it. instead of "ALL"" -> "VCOS" instead of "ALL."" | confidence high
-14:1 | "show oft some of the and flexibility" -> "show off some of the richness and flexibility" | confidence high
-14:6 | "It 1s set to receive" -> "it is set to receive" | confidence high
-```
 
 ### Page Theory
-
-*(page-0015.png, printed p.13)*
 
 With an instrument as sophisticated as the Xpander, it becomes impractical to have an individual control for every function in the synthesizer, because the result would be too many knobs. So the Xpander utilizes six sets of controls, grouped into a system of "pages," to control its various functions. This way, all the controls for one section of the synthesizer are accessible at once in the Page Modifier section of the synthesizer. The name of the selected page is always shown on the right side of the Programmer display.
 
@@ -256,16 +210,6 @@ All the functions accessed from Single Patch pages are programmed into a *Single
 
 Multi Patch pages are also chosen with the buttons on the right side of the front panel (while in Multi Patch mode) and the names of the Multi Patch pages appear in grey next to each button. Multi Patch mode is selected with the MULTI PATCH button in the Programmer section on the left side of the panel. All the functions accessed from Multi Patch Pages are programmed into a *Multi Patch program*.
 
-```changelog
-15:1 | "a system of to control" -> "a system of "pages," to control" | confidence high
-15:2 | "The of the primary pages" -> "The functions of the primary pages" | confidence high
-15:6 | "selected with the PATCH button" -> "selected with the MULTI PATCH button" | confidence high
-```
-
-### Knobs And Buttons
-
-*(page-0016.png, printed p.14)*
-
 #### Other Pages
 There are four other kinds of pages in the Xpander:
 
@@ -279,6 +223,8 @@ A dot will appear after a function's name if it is being modulated.
 
 **Page 2** accesses additional functions on most of the Single Patch pages, such as the waveform select on the VCO pages. To access a particular Page 2, press the PAGE 2 button to the left of the knobs. The Page 2 LED will light when displaying any Page 2. Press the PAGE 2 button to return to the primary page from *either* a Page 2 or Modulation Page.
 
+### Knobs And Buttons
+
 Generally, the names of the controls are on the top display in the Page Modifier Section, while the current setting of each control is on the bottom display. There are exceptions, where switches appear on both top and bottom displays. The buttons adjacent to the displays have multiple functions, which are indicated by the Switch Mode LEDs.
 
 **Controls** generally have a range of 0 to 63. Some can be positive or negative as well. Turn the knob to change the value, or press the button above the knob (Value X) and then press two digits in the X Select Section.
@@ -287,19 +233,11 @@ Generally, the names of the controls are on the top display in the Page Modifier
 
 **Either/Or Switches** change name when pressed. These switched are always ON one way or the other, so they are always underlined. These can also be selected by turning the knob below the switch.
 
-```changelog
-16:1 | no correction needed, clean page | confidence high
-```
-
+---
+![Photo of the Programmer display (patch/name/voice/current page readout)](images/p17-programmer-display.jpg)
 ---
 
 ## Programmed Xcellence
-
-![Photo of the Programmer display (patch/name/voice/current page readout)](images/p17-programmer-display.jpg)
-
-*(page-0017.png, full-page plate with no folio — chapter-opening photo)*
-
-*(page-0018.png, printed p.17 — opening page with the chapter's visual index)*
 
 Section index for this chapter (as printed on the opening page):
 
@@ -307,8 +245,6 @@ Section index for this chapter (as printed on the opening page):
 - **19** Getting Back To Square One — Master Reset
 
 ### Using The Programmer
-
-*(page-0019.png, printed p.18)*
 
 The Programmer Section of the Xpander is used to select and store patches. The Programmer display also provides information about the status of the machine.
 
@@ -342,7 +278,6 @@ Selecting an individual voice causes the Xpander to enter Single Patch mode for 
 
 You can switch among the six voices' Single Patches with the PATCH EDIT buttons. The underline in the display shows your current location, and the dot to the right of each patch number indicates if that patch has been edited.
 
-*(page-0020.png, printed p.19)*
 
 ##### Copying a Patch From One Voice To Another
 
@@ -354,23 +289,17 @@ You can edit the Single Patches of several voices at the same time simply by pre
 
 Realize that since you can edit several different patches this way, a control will not necessarily be at the same setting on all the voices. Therefore, the display shows the value of the left most voice that you are editing at the moment. You can't edit any modulation pages, because they can vary so much from patch to patch. You can't store patches in this mode, either. (If you think you're having trouble keeping track of six different Single Patches and a Multi Patch, think about what the computers are going through!) Remember that you can compare the entire edited Multi Patch with the unedited one, and that you can store the Single Patches one at a time.
 
+### Getting Back To Square One
+
 The Xpander is so flexible that it's entirely possible to lose track of who's modulating what. But there is a basic patch (called "OBERHEIM") indelibly etched in the back of the Xpander's memory. To reach it hold the STORE button and press the CLEAR button (on the right of the X Select selection of the front panel).
 
 You can recall this patch from either Single Patch or Multi Patch mode. You can also edit this patch or store it in any Single Patch location.
 
 This basic patch resembles a conventional synthesizer hookup. There are only two modulations: Envelope1 to Filter Frequency, and Envelope2 to VCA2. It can't be erased under any circumstances.
 
-### Getting Back To Square One
-
 ##### Master Reset
 
 There is also a way to reset everything except patches: Turn the power off, then turn the power on while holding the CLEAR button. This master reset will recall the OBERHEIM patch as well as setting everything to its default condition.
-
-```changelog
-19:1 | "the underline will move" corrections and headings reconstructed from image (raw OCR had these two pages heavily merged/reordered) | confidence high
-20:5 | "there a basic patch (called indelibly etched" -> "there is a basic patch (called "OBERHEIM") indelibly etched" | confidence high
-20:6 | "in any Single Patch" (OCR truncated) -> "in any Single Patch location." | confidence medium (end-of-line word reconstructed by grammatical continuity, visually confirmed)
-```
 
 
 ---
