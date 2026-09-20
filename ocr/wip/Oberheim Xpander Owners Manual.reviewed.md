@@ -508,17 +508,23 @@ There are up to five Envelope Generators on each voice. Envelopes are used for c
 
 #### Selecting an Envelope
 
-Pressing the ENV X button will show the display:
+Pressing the ENV X button will show the display: 
 
-**SELECT ENVELOPE FROM 1 TO 5**
+```
+SELECT ENVELOPE FROM 1 TO 5
+```
 
 Pressing an X SELECT button from 1 to 5 will select that envelope, or pressing the ENV X button again will select the envelope that was selected previously.
 
 You can switch between envelopes with the X SELECT buttons, if none of the values on the lower display are underlined.
 
+
 #### Envelope Functions
 
 There are five controls for each envelope, plus yet another VCA to control the output volume of the envelope.
+
+![Envelope page 1](images/env-page1.JPG)
+
 
 **DELAY** / The amount of time that the envelope will wait before doing anything, very useful if you want to affect one element of the sound sometime after the sound starts. When the DELAY is set to 0, the envelope attacks right away, without any delay. Play some notes while turning up the delay and see that the time between playing the note and hearing the note gets progressively longer as the DELAY control is turned up. The maximum DELAY is 2.5 seconds.
 
@@ -532,21 +538,20 @@ There are five controls for each envelope, plus yet another VCA to control the o
 
 **AMP** / This is the initial output level of the Envelope Generator.
 
-**Page 2** / The second envelope page selects several operational modes for the envelope. The top display shows cycling modes and the lower display shows triggering modes. These modes are all turned on and off by pressing the buttons under the appropriate display.
+**Page 2** 
+ 
+ The second envelope page selects several operational modes for the envelope. The top display shows cycling modes and the lower display shows triggering modes. These modes are all turned on and off by pressing the 
+ buttons under the appropriate display.
+ ![Envelope page 2](images/env-page2.JPG)
 
-**MODE** = RESET / FREERUN
-
-**SINGLE / EXTRIG / LFOTRIG / VIB / GATED**
 
 **RESET** / When RESET is underlined, the envelope starts at the beginning of its cycle whenever a gate is received. When off, the envelope starts at its current level.
 
 **FREERUN** / This causes the envelope to complete its entire cycle, even if the note has been released in the middle. When off, the envelope immediately goes to the release portion of its cycle when a note is released.
 
-**DADR** / This stands for Delay Attack Decay Release, which means that the envelope will not sustain if DADR is underlined. This has the same [?...?] as if you stopped playing the note as soon as the initial decay had finished. This is useful for percussive timbres.
+**DADR** / This stands for Delay Attack Decay Release, which means that the envelope will not sustain if DADR is underlined. This has the same effect as if you stopped playing the note as soon as the initial decay had finished. This is useful for percussive timbres.
 
 *(page-0032.png, printed p.31)*
-
-![ADSR diagram (Delay/Attack/Decay/Sustain/Release)](images/p32-adsr-envelope.png)
 
 **SINGLE-MULTI** / In SINGLE mode, the envelope gets a new gate signal only if not already gated (that is, playing). Slurring notes will not generate new gates.
 
@@ -558,6 +563,8 @@ In MULTI mode, the envelope gets a new gate whenever there is a new note. Slurre
 
 **GATED** / If either EXTRIG or LFOTRIG is on, the GATED switch appears. If the GATED display is underlined, the External trigger or LFO trigger source will trigger the envelope only if the envelope is gated. In other words, it will trigger only when a note is being played. If GATED is off, the envelope will continually trigger.
 
+![ADSR diagram (Delay/Attack/Decay/Sustain/Release)](images/p32-adsr-envelope.png)
+
 #### Creating Very Long or Unusual Envelopes
 
 Remember that unlike all your other synths, you can modulate all of these timings with anything — an LFO, the velocity, the keyboard (especially through a tracking generator), or even another envelope. For example, modulating the Release with the envelope's own output results in a release time that gets faster and faster as it nears the zero level, something like 75 minutes later. Setting all of the Envelope times to 63, modulating each of them with a Tracking Generator set to 63, and switching on Freerun & DADR, results in an envelope cycle that runs about half an hour in length from just a quick touch on the keyboard. Trance, anyone?
@@ -567,11 +574,6 @@ Oh yes, the VCA (like all VCAs) can be modulated, too.
 #### Stopping An Envelope
 
 Pressing the TUNE PAGE button will cut short any envelopes in progress, if you don't wish to hang around for the above mentioned half hour envelope to finish its cycle.
-
-```changelog
-30:3 | "This has the same as if you stopped playing" -> left as "This has the same [?...?] as if you stopped playing" | confidence medium (the missing word, likely "effect", is not visible as such on the image; flagged rather than guessed, meaning unaffected)
-31:3 | "If GATED is oft" -> "If GATED is off" | confidence high
-```
 
 ### LFO X
 
