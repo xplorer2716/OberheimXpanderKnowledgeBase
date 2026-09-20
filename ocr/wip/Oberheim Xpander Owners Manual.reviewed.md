@@ -584,6 +584,9 @@ There are also up to five LFOs or Low Frequency Oscillators on each voice. LFOs 
 #### Selecting an LFO
 
 Pressing the LFO X button will show the display.
+```
+SELECT LFO FROM 1 TO 5
+```
 
 Pressing an X SELECT button from 1 to 5 will select that LFO, or pressing the LFO X button will select the LFO that was selected previously.
 
@@ -591,7 +594,7 @@ You can switch between LFOs with the X SELECT buttons, if none of the values on 
 
 #### LFO Controls
 
-**SPEED / WAVE / RETRIG / AMP**
+![LFO page 1)](images/lfo-page1.JPG)
 
 **SPEED** / This controls the frequency of the LFO. Set to 0, an LFO takes 30 seconds to complete one cycle. Set to 63, the speed is approximately 25Hz.
 
@@ -601,27 +604,40 @@ You can switch between LFOs with the X SELECT buttons, if none of the values on 
 
 **AMP** / The output level of the LFO.
 
-The speed and amplitude can be modulated (see Modulation Pages).
+The speed and amplitude can be modulated (see [Modulation Pages](#modulation-pages)).
 
 *(page-0034.png, printed p.33)*
 
+### Waveforms:
+
+<table>
+<tr>
+<td width="30%">
+
 ![LFO waveforms: Triangle, Square, Up Saw, Down Saw, Random, Noise](images/p34-lfo-waveforms.png)
 
-Waveforms: **TRIANGLE** — This is the most common LFO waveform, a smooth up and down, perfect for conventional vibrato and tremolo.
+</td>
+<td width="70%">
+
+**TRIANGLE** — This is the most common LFO waveform, a smooth up and down, perfect for conventional vibrato and tremolo.
+
+**SQUARE** — The square wave alternates between high and low. Good for trills.
 
 **UP SAW** — The up sawtooth is useful for special effects; the sawtooth can make the pitch of an oscillator go up repeatedly, or a VCA get loud.
 
 **DOWN SAW** — The down sawtooth goes in the opposite direction from the up saw. This is useful for echo effects, patched up to one of the VCAs on the VCF/VCA page.
 
-**SQUARE** — The square wave alternates between high and low. Good for trills.
-
 **RANDOM** — This waveform outputs a random signal, sometimes called sample and hold. Random used to modulate the filter frequency or oscillator pulse width makes a good rhythmic effect when triggered externally (see LFO Page 2) and clocked by a drum machine or sequencer.
+
+**SAMPLE** — The Xpander can sample another source and use that as a waveform. The SPEED controls how often the source is sampled. The SAMPLE control appears to select the sampled source, which can be any of the modulation sources.
+![Sampling this wave, at this rate, gives this result — illustration of how SAMPLE mode works](images/p34-lfo-sampling.png)
 
 **NOISE** — Just what it sounds like, noise. A high speed version of random. This is good in small doses for adding a bit of instability to oscillators, or in large amounts for buzzing bees.
 
-**SAMPLE** — The Xpander can sample another source and use that as a waveform. The SPEED controls how often the source is sampled. The SAMPLE control appears to select the sampled source, which can be any of the modulation sources.
+</td>
+</tr>
+</table>
 
-![Sampling this wave, at this rate, gives this result — illustration of how SAMPLE mode works](images/p34-lfo-sampling.png)
 
 #### Page 2
 
@@ -631,13 +647,8 @@ Waveforms: **TRIANGLE** — This is the most common LFO waveform, a smooth up an
 
 #### Modulating the LFO
 
-The speed can be modulated by accessing its Modulation Page (press the SPEED button). Recommended modulation sources are the keyboard so that the speed changes depending on the note played, Velocity so that the speed changes depending upon how hard the note is played, or one of the envelopes so that the speed changes as the note plays. Of course there are many other interesting modulation combinations, like modulating an LFO with itself, so that it changes speed in the course of its cycle. See the Modulation Page Section for more [details].
+The speed can be modulated by accessing its Modulation Page (press the SPEED button). Recommended modulation sources are the keyboard so that the speed changes depending on the note played, Velocity so that the speed changes depending upon how hard the note is played, or one of the envelopes so that the speed changes as the note plays. Of course there are many other interesting modulation combinations, like modulating an LFO with itself, so that it changes speed in the course of its cycle. See the [Modulation Pages](#modulation-pages) Section for more info.
 
-```changelog
-33:1 | clean page, no significant correction | confidence high
-34:2 | "Good for trills" (sentence ending reconstructed, page break in raw OCR) | confidence high
-34:3 | "See the Modulation Page Section for more" -> "...for more [details]." | confidence medium (page cut off, exact word not visually confirmed)
-```
 
 ### TRACK X
 
