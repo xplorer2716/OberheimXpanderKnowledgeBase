@@ -433,19 +433,19 @@ Most synthesizers have only one filter mode. Some have two, high pass and low pa
 
 The filter modes are:
 
-1, 2, 3, and 4 pole low pass
+- 1, 2, 3, and 4 pole low pass
 
-1, 2, 3 pole high pass
+- 1, 2, 3 pole high pass
 
-2 and 4 pole band pass
+- 2 and 4 pole band pass
 
-2 pole notch (band reject)
+- 2 pole notch (band reject)
 
-3 pole phase shift
+- 3 pole phase shift
 
-2 and 3 pole high pass + 1 pole low pass; 2 pole notch + 1 pole low pass
+- 2 and 3 pole high pass + 1 pole low pass; 2 pole notch + 1 pole low pass
 
-3 pole phase shift + 1 pole low pass
+- 3 pole phase shift + 1 pole low pass
 
 ![8 filter mode diagrams: Low Pass, High Pass, Band Pass, Notch, Phase, High+Low, Notch+Low, Phase+Low](images/p27-filter-mode-diagrams.png)
 
@@ -455,9 +455,9 @@ The low pass modes filter out the high frequencies; that is, they let the low fr
 
 *(page-0028.png, printed p.27)*
 
-![Comparative graph of filter cutoff slopes: 1, 2, 3 and 4 poles](images/p28-filter-pole-comparison.png)
-
 The number of poles of a filter affects the rolloff, how sharply the filter cuts off. In technical terms, each pole of the filter attenuates (reduces the volume of) frequencies beyond the filter point by 6dB per octave.
+
+![Comparative graph of filter cutoff slopes: 1, 2, 3 and 4 poles](images/p28-filter-pole-comparison.png)
 
 A one pole low pass filter will attenuate frequencies by 6dB per octave beyond the filter point; 12dB two octaves beyond, 18dB three octaves beyond, etc. A two pole filter attenuates at 12dB per octave, a three pole at 18dB per octave, and a four pole filter at 24dB per octave. In musical terms, fewer filter poles results in a brighter, buzzier sound; while more poles makes for a fatter sound.
 
@@ -465,18 +465,9 @@ A one pole low pass filter will attenuate frequencies by 6dB per octave beyond t
 
 The VCF/VCA page also contains the two output VCAs that are used to control the volume of the sound. VCAs act just like the volume control on your stereo: you turn it up it gets louder, you turn it down it gets softer.
 
-VCAs have generally been "invisible" on programmable synthesizers, controlled only by the volume envelope generator. The Xpander has 15 VCAs strategically located throughout each voice because they are useful tools. The two VCAs in the VCF/VCA page are the ones through which the synthesizer's sound passes, and are therefore most important; it is from these VCAs that enveloping of the entire sound occurs. In working with these VCAs remember that no sound will come out of the voice unless both are turned up, either by the gain of the VCA itself or by modulating the VCA with an envelope, LFO, or some other source. Velocity is useful as a modulator for one of the VCAs, because the harder you play the keyboard, the higher the output volume will be.
+VCAs have generally been "invisible" on programmable synthesizers, controlled only by the volume envelope generator. The Xpander has 15 VCAs strategically located throughout each voice because they are useful tools. The two VCAs in the VCF/VCA page are the ones through which the synthesizer's sound passes, and are therefore most important; it is from these VCAs that enveloping of the entire sound occurs. In working with these VCAs remember that **no sound will come out of the voice unless both are turned up**, either by the gain of the VCA itself or by modulating the VCA with an envelope, LFO, or some other source. Velocity is useful as a modulator for one of the VCAs, because the harder you play the keyboard, the higher the output volume will be.
 
 If the initial amplitude of both VCAs are up, the sound of the voice will always be heard, even when no notes are being played.
-
-```changelog
-26:2 | "cutoff frequency or the frequency" -> "cutoff frequency, or the frequency" | confidence high
-27:1 | reconstruction of the "filter modes" list from the image (raw OCR merged several lines: "2 and 3 pole high pass 1 pole low pass 2 pole notch + 1 pole low pass" split into two entries) | confidence high
-27:2 | "tt lets all frequencies" -> "it lets all frequencies" | confidence high
-28:1 | "Lomparative filtering effects..." (illustration caption, not reproduced as-is, replaced by the image description) | confidence high
-28:3 | "have generally been "invisible"" -> "VCAs have generally been "invisible"" (subject restored) | confidence medium
-28:4 | "It the initial amplitude" -> "If the initial amplitude" | confidence high
-```
 
 ### FM/LAG
 
@@ -490,7 +481,7 @@ There are two functions combined on this page. One is FM or Frequency Modulation
 
 Lag is equivalent to portamento on other synthesizers, but is configured for greatly increased flexibility on the Xpander. Lag takes a signal with an instantaneous transition — such as keyboard pitch — and slows the transition. The LAG INput selects the source to be lagged, while the LAG RATE controls the speed of transition.
 
-For example, classic portamento is achieved by taking the signal from the keyboard and patching it through the Lag Processor before sending it to the VCOs. However, there are other things that can be done with lag, such as lagging the velocity signal to the VCA or filter frequency, or processing an LFO square wave through the Lag Processor to create an exaggerated transition, as the diagram at left shows. The rate can also be modulated (see Modulation Pages).
+For example, classic portamento is achieved by taking the signal from the keyboard and patching it through the Lag Processor before sending it to the VCOs. However, there are other things that can be done with lag, such as lagging the velocity signal to the VCA or filter frequency, or processing an LFO square wave through the Lag Processor to create an exaggerated transition, as the diagram at left shows. The rate can also be modulated (see [Modulation Pages](#modulation-pages)).
 
 The Lag Processor has several operational modes, accessed from Page 2:
 
@@ -502,16 +493,12 @@ Legato Lag is most useful when playing one voice. Utilizing Legato Lag polyphoni
 
 **EQUAL TIME** / When in LINEAR mode, the EQUAL TIME display appears and can be selected. When EQUAL TIME is on, all notes will take the same time to get from one place to another, no matter how far the amount of travel is. When off, all notes will travel at the same speed no matter how far the distance is. In other words, with EQUAL TIME on, lag of a minor second will take the same time as a lag of two octaves; when off the two octave lag will take much longer than the minor second.
 
-This page also accesses the Linear FM capability of the Xpander. The controls are for the FM AMPlitude (which of course, can be modulated — see the Modulation Page Section), and for the FM DESTination, which can be VCO1 or the filter.
 
 #### FM
 
-For more information about FM, see the Synthesthesia Section of this manual.
+This page also accesses the Linear FM capability of the Xpander. The controls are for the FM AMPlitude (which of course, can be modulated — see the Modulation Page Section), and for the FM DESTination, which can be VCO1 or the filter.
 
-```changelog
-29:1 | "a signal with an instantaneous transitions such as" -> "a signal with an instantaneous transition — such as" | confidence medium
-29:2 | reconstruction of the "Legato Lag is most useful..." paragraph (raw OCR: "_egato Lag most usetul when voice. Ullizing Legalo Lag requires caretu keyboard technique To cause ali six voices 1a lag requres tha! lwe ve <eys be") | confidence high
-```
+For more information about FM, see the [Synthesthesia](#synthesthesia) Section of this manual.
 
 ### ENV X
 
