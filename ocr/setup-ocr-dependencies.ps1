@@ -1,13 +1,13 @@
 <#
 .SYNOPSIS
-    Installe et verifie tout ce dont convert-pdf-to-text-ocr.ps1 a besoin.
+    Installs and verifies everything needed by convert-pdf-to-text-ocr.ps1.
 
 .DESCRIPTION
     Run this once before using convert-pdf-to-text-ocr.ps1. It performs six
     checks, in order, and reports a pass/fail summary at the end:
 
       1. HOST          Windows 10/11 (build 10240+) and PowerShell 5.1+.
-                       Required by the WinRT PDF rasteriser.
+                       Required by the WinRT PDF rasterizer.
       2. WINRT PDF     Windows.Data.Pdf can be loaded and used. This is the
                        component that turns PDF pages into PNG images; there is
                        no fallback, so a failure here is blocking.
@@ -33,35 +33,35 @@
     it if the download turns out to be corrupt.
 
 .PARAMETER Language
-    Langue(s) a installer, separees par '+' comme pour Tesseract.
-    Defaut : 'eng+fra'.
+    Language(s) to install, separated by '+' as with Tesseract.
+    Default: 'eng+fra'.
 
 .PARAMETER TesseractPath
-    Repertoire d'installation de Tesseract, si l'auto-detection echoue
-    (ex. 'C:\dev\tools\tesseract').
+    Tesseract installation directory, if auto-detection fails
+    (for example, 'C:\dev\tools\tesseract').
 
 .PARAMETER InstallTesseract
-    Installe Tesseract via winget s'il est absent. Sans ce commutateur, le
-    script se contente de signaler l'absence et d'indiquer quoi faire.
+    Installs Tesseract via winget if it is absent. Without this switch, the
+    script only reports the missing dependency and indicates what to do.
 
 .PARAMETER Force
-    Retelecharge les modeles meme si un modele 'best' est deja en place.
+    Re-downloads the models even if a 'best' model is already in place.
 
 .PARAMETER SkipModels
-    Ne touche pas aux modeles de langue (verifications seules).
+    Leaves the language models alone (validation only).
 
 .PARAMETER SkipTest
-    Saute le test de bout en bout (etape 6).
+    Skips the end-to-end smoke test (step 6).
 
 .EXAMPLE
     .\setup-ocr-dependencies.ps1
 
 .EXAMPLE
-    # Poste neuf, anglais seul, installation complete :
+    # Fresh machine, English only, full installation:
     .\setup-ocr-dependencies.ps1 -Language eng -InstallTesseract
 
 .EXAMPLE
-    # Verifier sans rien modifier :
+    # Verify without making any changes:
     .\setup-ocr-dependencies.ps1 -WhatIf
 #>
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -86,15 +86,15 @@ $report = New-Object System.Collections.ArrayList
 function Add-Result([string]$Step, [string]$State, [string]$Detail) {
     [void]$report.Add([pscustomobject]@{ Step = $Step; State = $State; Detail = $Detail })
     $color = 'Green'
-    if ($State -eq 'ECHEC')   { $color = 'Red' }
-    if ($State -eq 'ALERTE')  { $color = 'Yellow' }
+    if ($State -eq 'FAIL')   { $color = 'Red' }
+    if ($State -eq 'WARNING')  { $color = 'Yellow' }
     if ($State -eq 'IGNORE')  { $color = 'DarkGray' }
     Write-Host ("  [{0,-6}] {1,-22} {2}" -f $State, $Step, $Detail) -ForegroundColor $color
 }
 
 Write-Host ""
-Write-Host "Verification des dependances OCR" -ForegroundColor Cyan
-Write-Host "--------------------------------" -ForegroundColor Cyan
+Write-Host "OCR dependency check" -ForegroundColor Cyan
+Write-Host "--------------------" -ForegroundColor Cyan
 
 # =========================================================================
 # 1) Host: Windows version and PowerShell version
@@ -102,20 +102,20 @@ Write-Host "--------------------------------" -ForegroundColor Cyan
 $osVersion = [System.Environment]::OSVersion.Version
 $psVersion = $PSVersionTable.PSVersion
 if ($osVersion.Major -lt 10) {
-    Add-Result 'Windows' 'ECHEC' "Windows $osVersion - Windows 10 ou 11 requis (API WinRT PDF)."
+    Add-Result 'Windows' 'FAIL' "Windows $osVersion - Windows 10 or 11 required (WinRT PDF API)."
 }
 else {
     Add-Result 'Windows' 'OK' "Windows $osVersion"
 }
 if ($psVersion.Major -lt 5 -or ($psVersion.Major -eq 5 -and $psVersion.Minor -lt 1)) {
-    Add-Result 'PowerShell' 'ECHEC' "PowerShell $psVersion - 5.1 minimum requis."
+    Add-Result 'PowerShell' 'FAIL' "PowerShell $psVersion - 5.1 minimum required."
 }
 else {
     # PowerShell 7 loads WinRT types differently and Add-Type -AssemblyName
     # System.Runtime.WindowsRuntime is unavailable there: warn rather than fail,
     # since the user may simply be probing from the wrong host.
     if ($psVersion.Major -ge 6) {
-        Add-Result 'PowerShell' 'ALERTE' "PowerShell $psVersion - lancez les scripts depuis Windows PowerShell 5.1 (powershell.exe) : l'API WinRT n'est pas accessible en PS 7."
+        Add-Result 'PowerShell' 'WARNING' "PowerShell $psVersion - run scripts from Windows PowerShell 5.1 (powershell.exe): the WinRT API is not accessible in PowerShell 7."
     }
     else {
         Add-Result 'PowerShell' 'OK' "PowerShell $psVersion"
@@ -123,16 +123,16 @@ else {
 }
 
 # =========================================================================
-# 2) WinRT PDF rasteriser - the PDF -> PNG stage, no fallback exists
+# 2) WinRT PDF rasterizer - the PDF -> PNG stage, no fallback exists
 # =========================================================================
 try {
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
     [Windows.Data.Pdf.PdfDocument, Windows.Data.Pdf, ContentType = WindowsRuntime] | Out-Null
     [Windows.Storage.StorageFile, Windows.Storage, ContentType = WindowsRuntime]   | Out-Null
-    Add-Result 'API PDF WinRT' 'OK' 'Windows.Data.Pdf disponible'
+    Add-Result 'API PDF WinRT' 'OK' 'Windows.Data.Pdf available'
 }
 catch {
-    Add-Result 'API PDF WinRT' 'ECHEC' "Windows.Data.Pdf inaccessible : $($_.Exception.Message)"
+    Add-Result 'API PDF WinRT' 'FAIL' "Windows.Data.Pdf inaccessible: $($_.Exception.Message)"
 }
 
 # =========================================================================
@@ -142,10 +142,10 @@ try {
     Add-Type -AssemblyName System.Drawing
     $probe = New-Object System.Drawing.Bitmap 4, 4
     $probe.Dispose()
-    Add-Result 'System.Drawing' 'OK' 'disponible (-CleanImages utilisable)'
+    Add-Result 'System.Drawing' 'OK' 'available (-CleanImages usable)'
 }
 catch {
-    Add-Result 'System.Drawing' 'ALERTE' "indisponible : l'option -CleanImages ne fonctionnera pas ($($_.Exception.Message))"
+    Add-Result 'System.Drawing' 'WARNING' "unavailable: the -CleanImages option will not work ($($_.Exception.Message))"
 }
 
 # =========================================================================
@@ -175,10 +175,10 @@ $tessExe = Find-Tesseract -Hint $TesseractPath
 
 if (-not $tessExe -and $InstallTesseract) {
     if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-        Add-Result 'Tesseract' 'ECHEC' "absent, et winget introuvable. Installez depuis https://github.com/UB-Mannheim/tesseract/wiki"
+        Add-Result 'Tesseract' 'FAIL' "not found, and winget is unavailable. Install it from https://github.com/UB-Mannheim/tesseract/wiki"
     }
     elseif ($PSCmdlet.ShouldProcess('UB-Mannheim.TesseractOCR', 'winget install')) {
-        Write-Host "  Installation de Tesseract via winget..." -ForegroundColor DarkGray
+        Write-Host "  Installing Tesseract via winget..." -ForegroundColor DarkGray
         $prevEap = $ErrorActionPreference
         $ErrorActionPreference = 'Continue'
         & winget install --id UB-Mannheim.TesseractOCR -e --accept-package-agreements --accept-source-agreements
@@ -192,7 +192,7 @@ if (-not $tessExe -and $InstallTesseract) {
 }
 
 if (-not $tessExe) {
-    Add-Result 'Tesseract' 'ECHEC' "introuvable. Relancez avec -InstallTesseract, ou passez -TesseractPath <dossier>."
+    Add-Result 'Tesseract' 'FAIL' "not found. Run again with -InstallTesseract, or pass -TesseractPath <directory>."
 }
 else {
     $prevEap = $ErrorActionPreference
@@ -205,11 +205,11 @@ else {
     # bare, so offer to make that work permanently.
     if (-not (Get-Command tesseract -ErrorAction SilentlyContinue)) {
         $tessDir = Split-Path $tessExe -Parent
-        if ($PSCmdlet.ShouldProcess("PATH utilisateur", "ajouter $tessDir")) {
+        if ($PSCmdlet.ShouldProcess("user PATH", "add $tessDir")) {
             $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
             if ($userPath -notlike "*$tessDir*") {
                 [Environment]::SetEnvironmentVariable('Path', ($userPath.TrimEnd(';') + ';' + $tessDir), 'User')
-                Add-Result 'PATH' 'OK' "$tessDir ajoute au PATH utilisateur (rouvrez le terminal)"
+                Add-Result 'PATH' 'OK' "$tessDir added to the user PATH (open a new terminal)"
             }
             $env:Path = $env:Path.TrimEnd(';') + ';' + $tessDir
         }
@@ -222,10 +222,10 @@ else {
 $langs = @($Language -split '\+' | Where-Object { $_ } | ForEach-Object { $_.Trim() })
 
 if ($SkipModels) {
-    Add-Result 'Modeles' 'IGNORE' '-SkipModels'
+    Add-Result 'Models' 'IGNORE' '-SkipModels'
 }
 elseif (-not $tessExe) {
-    Add-Result 'Modeles' 'IGNORE' 'Tesseract absent'
+    Add-Result 'Models' 'IGNORE' 'Tesseract missing'
 }
 else {
     # Resolve tessdata. TESSDATA_PREFIX has meant both "the tessdata folder"
@@ -239,7 +239,7 @@ else {
     if (-not (Test-Path -LiteralPath $tessData)) {
         New-Item -ItemType Directory -Force -Path $tessData | Out-Null
     }
-    Write-Host "  tessdata : $tessData" -ForegroundColor DarkGray
+    Write-Host "  tessdata: $tessData" -ForegroundColor DarkGray
 
     # A 'best' model is 13-23 MB (eng 22.4, fra 13.6); 'fast' and legacy sit at
     # 1-5 MB. The size is a reliable discriminator and costs nothing to check.
@@ -255,16 +255,16 @@ else {
         }
 
         if ($sizeMb -ge ($bestMinBytes / 1MB) -and -not $Force) {
-            Add-Result "Modele $lang" 'OK' "$sizeMb Mo - modele 'best' deja en place"
+            Add-Result "Model $lang" 'OK' "$sizeMb MB - 'best' model already installed"
             continue
         }
 
-        $why = 'absent'
-        if ($sizeMb -gt 0) { $why = "$sizeMb Mo = modele 'fast'/legacy" }
+        $why = 'missing'
+        if ($sizeMb -gt 0) { $why = "$sizeMb MB = 'fast'/legacy model" }
         $url = "https://github.com/tesseract-ocr/tessdata_best/raw/main/$lang.traineddata"
 
-        if (-not $PSCmdlet.ShouldProcess($dest, "telecharger tessdata_best/$lang ($why)")) {
-            Add-Result "Modele $lang" 'IGNORE' "$why - telechargement non confirme"
+        if (-not $PSCmdlet.ShouldProcess($dest, "download tessdata_best/$lang ($why)")) {
+            Add-Result "Model $lang" 'IGNORE' "$why - download not confirmed"
             continue
         }
 
@@ -278,24 +278,24 @@ else {
 
         $tmp = "$dest.download"
         try {
-            Write-Host "  Telechargement de $lang.traineddata (tessdata_best, 13-23 Mo)..." -ForegroundColor DarkGray
+            Write-Host "  Downloading $lang.traineddata (tessdata_best, 13-23 MB)..." -ForegroundColor DarkGray
             $ProgressPreference = 'SilentlyContinue'   # Invoke-WebRequest is ~10x faster without the bar
             Invoke-WebRequest -Uri $url -OutFile $tmp -UseBasicParsing
             $ProgressPreference = $prevProgress
 
             $dl = (Get-Item -LiteralPath $tmp).Length
             if ($dl -lt $bestMinBytes) {
-                throw "fichier recu trop petit ($([math]::Round($dl/1MB,1)) Mo) - telechargement incomplet ou langue inexistante."
+                throw "downloaded file too small ($([math]::Round($dl/1MB,1)) MB) - incomplete download or language does not exist."
             }
             Move-Item -LiteralPath $tmp -Destination $dest -Force
-            Add-Result "Modele $lang" 'OK' ("tessdata_best installe ({0} Mo)" -f [math]::Round($dl / 1MB, 1))
-            if ($backup) { Write-Host "    ancien modele conserve : $backup" -ForegroundColor DarkGray }
+            Add-Result "Model $lang" 'OK' ("tessdata_best installed ({0} MB)" -f [math]::Round($dl / 1MB, 1))
+            if ($backup) { Write-Host "    previous model kept: $backup" -ForegroundColor DarkGray }
         }
         catch {
             $ProgressPreference = $prevProgress
             Remove-Item -LiteralPath $tmp -Force -ErrorAction SilentlyContinue
             if ($backup) { Move-Item -LiteralPath $backup -Destination $dest -Force }   # rollback
-            Add-Result "Modele $lang" 'ECHEC' "$($_.Exception.Message) (ancien modele restaure)"
+            Add-Result "Model $lang" 'FAIL' "$($_.Exception.Message) (previous model restored)"
         }
     }
 }
@@ -304,10 +304,10 @@ else {
 # 6) End-to-end smoke test: synthetic image -> Tesseract -> text
 # =========================================================================
 if ($SkipTest) {
-    Add-Result 'Test OCR' 'IGNORE' '-SkipTest'
+    Add-Result 'OCR Test' 'IGNORE' '-SkipTest'
 }
 elseif (-not $tessExe) {
-    Add-Result 'Test OCR' 'IGNORE' 'Tesseract absent'
+    Add-Result 'OCR Test' 'IGNORE' 'Tesseract missing'
 }
 else {
     # -WhatIf:$false throughout: this is a scratch directory, not a change the
@@ -353,20 +353,20 @@ else {
         $ErrorActionPreference = $prevEap
 
         if ($code -ne 0) {
-            Add-Result 'Test OCR' 'ECHEC' "tesseract a retourne le code $code"
+            Add-Result 'OCR Test' 'FAIL' "tesseract returned code $code"
         }
         else {
             $got = (Get-Content -LiteralPath "$outBase.txt" -Raw).Trim()
             if ($got -replace '\s+', ' ' -eq $expected) {
-                Add-Result 'Test OCR' 'OK' "'$got' (langue $testLang)"
+                Add-Result 'OCR Test' 'OK' "'$got' (language $testLang)"
             }
             else {
-                Add-Result 'Test OCR' 'ALERTE' "attendu '$expected', obtenu '$got' - chaine fonctionnelle mais precision douteuse"
+                Add-Result 'OCR Test' 'WARNING' "expected '$expected', got '$got' - output works but accuracy is questionable"
             }
         }
     }
     catch {
-        Add-Result 'Test OCR' 'ECHEC' $_.Exception.Message
+        Add-Result 'OCR Test' 'FAIL' $_.Exception.Message
     }
     finally {
         Remove-Item -LiteralPath $tmpDir -Recurse -Force -ErrorAction SilentlyContinue -WhatIf:$false
@@ -376,21 +376,21 @@ else {
 # =========================================================================
 # Summary
 # =========================================================================
-$fail  = @($report | Where-Object { $_.State -eq 'ECHEC' }).Count
-$warn  = @($report | Where-Object { $_.State -eq 'ALERTE' }).Count
+$fail  = @($report | Where-Object { $_.State -eq 'FAIL' }).Count
+$warn  = @($report | Where-Object { $_.State -eq 'WARNING' }).Count
 
 Write-Host ""
 if ($fail -gt 0) {
-    Write-Host "$fail echec(s), $warn alerte(s). Corrigez les points en rouge avant de lancer l'OCR." -ForegroundColor Red
+    Write-Host "$fail failed, $warn warning(s). Fix the red items before running OCR." -ForegroundColor Red
     exit 1
 }
 if ($warn -gt 0) {
-    Write-Host "Pret, avec $warn alerte(s)." -ForegroundColor Yellow
+    Write-Host "Ready, with $warn warning(s)." -ForegroundColor Yellow
 }
 else {
-    Write-Host "Toutes les dependances sont en place." -ForegroundColor Green
+    Write-Host "All dependencies are in place." -ForegroundColor Green
 }
 
 Write-Host ""
-Write-Host "Exemple d'utilisation :" -ForegroundColor Cyan
-Write-Host "  .\convert-pdf-to-text-ocr.ps1 -Path mon.pdf -Language $($langs[0]) -Dpi 400 -CleanImages -OutputPath mon.md"
+Write-Host "Example usage:" -ForegroundColor Cyan
+Write-Host "  .\convert-pdf-to-text-ocr.ps1 -Path example.pdf -Language $($langs[0]) -Dpi 400 -CleanImages -OutputPath output.md"
