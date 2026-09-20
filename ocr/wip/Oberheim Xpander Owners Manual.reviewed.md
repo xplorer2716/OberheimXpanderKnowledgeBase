@@ -349,44 +349,44 @@ There are two pages of controls for each VCO. You have just accessed the first p
 
 ![VCO page 1](images/vco-page1.JPG)
 
-**FREQ** / The frequency of the oscillator in semitones. **DETUNE** / The fine tuning of the oscillator sharp or flat. **PW** / Pulse width of the pulse wave output of the oscillator.
+**FREQ** / The frequency of the oscillator in semitones.
+
+**DETUNE** / The fine tuning of the oscillator sharp or flat.
+
+**PW** / Pulse width of the pulse wave output of the oscillator.
 
 **VOL** / The output volume of the oscillator.
 
 #### Modulation
 
-The frequency, pulse width, and volume of the oscillator can be modulated by other sources. See the section on Modulation Pages.
+The frequency, pulse width, and volume of the oscillator can be modulated by other sources. See the section on [Modulation Pages](#modulation-pages).
 
 *(page-0025.png, printed p.24)*
 
-![Oscillator waveforms: Sawtooth, Triangle, Pulse (31=Square), Pulse (15=Narrow)](images/p25-vco-waveforms.png)
-
 #### Page 2 Controls
+
 
 Pressing the PAGE 2 button accesses a second page of oscillator controls. Here you will find switches to select the control sources for the oscillator, and switches to select the oscillator's waveforms.
 
-**MOD** = KEYBD / LAG / LEV1 / VIB / SYNC
-
-**WAVE** = TRI / SAW / PULSE / NOISE
+![VCO page 2](images/vco-page2.JPG)
 
 **MOD** = The top display sets the sources that can be used to precisely control the pitch of the VCO. These are:
 
-KEYBD / The Keyboard pitch.
+**KEYBD** / The Keyboard pitch.
 
-LAG / The Lag Processor for portamento effects (see LAG). LAG and KEYBD cannot be on at the same time.
+**LAG** / The Lag Processor for portamento effects (see LAG). LAG and KEYBD cannot be on at the same time.
 
-LEV 1 / MIDI Lever 1, for pitch bend (see MIDI.) VIB / Vibrato (see Multi Patch VIB.)
+**LEV 1** / MIDI Lever 1, for pitch bend (see MIDI.) 
 
-SYNC (VCO2 only) / Makes VCO2 have the same pitch as VCO1. Changing the frequency of VCO2 while synced will cause more of a timbral than actual frequency change.
+**VIB** / Vibrato (see Multi Patch VIB.)
+
+**SYNC** (VCO2 only) / Makes VCO2 have the same pitch as VCO1. Changing the frequency of VCO2 while synced will cause more of a timbral than actual frequency change.
 
 **WAVE** = The bottom display sets the possible waveforms for the oscillator. These are: TRIangle, SAWtooth, PULSE, and NOISE (VCO2 only).
 
-The drawings at left show what the different waves look like. The width of the Pulse wave is controlled with the PW control on page 1. See the Synthesthesia Section for more information about the different waveforms and their uses.
+The drawings at left show what the different waves look like. The width of the Pulse wave is controlled with the PW control on page 1. See the [Synthesthesia](#synthesthesia) Section for more information about the different waveforms and their uses.
 
-```changelog
-24:1 | clean page, no significant correction | confidence high
-25:1 | "The drawings at left show what the different waves 100k like" -> "...look like" | confidence high
-```
+![Oscillator waveforms: Sawtooth, Triangle, Pulse (31=Square), Pulse (15=Narrow)](images/p25-vco-waveforms.png)
 
 ### VCF/VCA
 
@@ -394,29 +394,38 @@ The drawings at left show what the different waves look like. The width of the P
 
 This page contains the controls for the filter as well as two output amplifiers. There are two pages of controls for the filter. You have just accessed the first page. The top display in the page modifier section shows the names of the controls, which are from left:
 
+
+![VCF page 1](images/vcf-page1.jpg)
+
+
 **FREQ** / The cutoff frequency, or the frequency that the filtering starts at. This control is unique in that it goes from 0 to 127.
 
 **RES** / Filter resonance. This control accentuates the sound right at the filter frequency. Turning the resonance up gives a nasal sound and can be used to create a resonant swell or wa-wa sound. The resonance on the Xpander filter is unique because it can be modulated by any modulation source, for some striking effects. Setting the resonance to 63 (all the way up) will cause the filter to oscillate in some mode settings, allowing it to be used as a sound generator.
 
-**MODE** / The filter's mode. This is another unique Xpander function that is explained below. **VCA 1** / VCA 1's initial output volume. **VCA 2** / VCA 2's initial output volume.
+**MODE** / The filter's mode. This is another unique Xpander function that is explained below. 
+
+**VCA 1** / VCA 1's initial output volume. 
+
+**VCA 2** / VCA 2's initial output volume.
 
 #### Modulation
 
-The frequency and resonance of the filter, and both VCAs can be modulated by other sources. These modulations are quite important in achieving the desired sound character. See the section on Modulation Pages.
+The frequency and resonance of the filter, and both VCAs can be modulated by other sources. These modulations are quite important in achieving the desired sound character. See the section on [Modulation Pages](#modulation-pages).
 
 *(page-0027.png, printed p.26)*
 
-![8 filter mode diagrams: Low Pass, High Pass, Band Pass, Notch, Phase, High+Low, Notch+Low, Phase+Low](images/p27-filter-mode-diagrams.png)
-
 #### Page 2
 
-**MOD** = KEYBD / LAG / LEV1 / VIB
+Pressing the PAGE 2 button selects sources for precise control of the filter frequency. They are:
 
-KEYBD / The Keyboard pitch.
+![VCF page 2](images/vcf-page2.JPG)
 
-LAG / The Lag Processor for portamento effects (see LAG). LAG and KEYBD cannot be on at the same time.
+**KEYBD** / The Keyboard pitch.
 
-LEV 1 / MIDI Lever 1, for pitch bend. VIB / Vibrato (see Multi Patch VIB.)
+**LAG** / The Lag Processor for portamento effects (see LAG). LAG and KEYBD cannot be on at the same time.
+
+**LEV 1** / MIDI Lever 1, for pitch bend. VIB / Vibrato (see Multi Patch VIB.)
+
 
 #### The Xpanded Filter
 
@@ -437,6 +446,8 @@ The filter modes are:
 2 and 3 pole high pass + 1 pole low pass; 2 pole notch + 1 pole low pass
 
 3 pole phase shift + 1 pole low pass
+
+![8 filter mode diagrams: Low Pass, High Pass, Band Pass, Notch, Phase, High+Low, Notch+Low, Phase+Low](images/p27-filter-mode-diagrams.png)
 
 Understanding these different modes is really quite simple.
 
