@@ -660,7 +660,7 @@ The Tracking Generators are another of the Xpander's unique features. These enab
 
 Pressing the TRACK X button will show the display:
 
-**SELECT TRACKING GEN FROM 1 TO 3**
+```SELECT TRACKING GEN FROM 1 TO 3```
 
 Pressing an X SELECT button from 1 to 3 will select that Tracking Generator, or pressing the TRACK X button again will select the Tracking Generator that was selected previously.
 
@@ -670,15 +670,23 @@ You can switch between Tracking Generators with the X SELECT buttons, if none of
 
 A Tracking Generator divides the control range into five sections. At each of these points, you can define the desired output.
 
+![TRACK X page 1](images/track-page1.JPG) 
+
 *(page-0036.png, printed p.35)*
 
 The Tracking Generators work in two different ways, depending upon the original source:
 
-![Two graphs: Tracking Generator response for a positive input (KEYBOARD/ENVELOPE) and for a positive/negative input (LFO/BENDER)](images/p36-tracking-generator-graphs.png)
-
 **POSITIVE ONLY** / If the input goes from 0 to 63 (such as keyboard or envelope) the 0 input level appears at POINT 1. Setting the output to 0 results in 0.
 
+![Two graphs: Tracking Generator response for a positive input (KEYBOARD/ENVELOPE)](images/trackx_positive.jpg)
+
+Positive input (KEYBOARD/ENVELOPE)
+
 **POSITIVE/NEGATIVE** / If the input goes negative and positive (such as an LFO or Bender) then 0 input level appears at POINT 3 — in the middle. Setting a point to 31 results in 0 output; below 31 is negative and above 31 is positive.
+
+![Two graphs: Tracking Generator response for a positive/negative input (LFO/BENDER)](images/trackx_positive_negative.jpg)
+
+Positive/negative input (LFO/BENDER)
 
 #### Ideas
 
@@ -688,10 +696,6 @@ Two hip things that can be done with Tracking Generators are:
 
 2) A variable control such as a Pedal or Velocity (positive inputs) can be turned into a switch with a Tracking Generator, by setting all of the points to 0 except the highest one. Only near the maximum input will anything other than 0 come out of the Tracking Generator. You can patch the Pedal somewhere else in addition to the Tracking Generator, giving you gradual control of one function with the full range of the pedal, while switching on a second function only at the top of the pedal.
 
-```changelog
-35:1 | clean page | confidence high
-36:1 | reconstruction of both graph captions from the image (raw OCR: "rrom a input such as an or BENDER") | confidence high
-```
 
 ### RAMP X
 
@@ -703,21 +707,19 @@ There are up to four Ramp Generators on each voice. Ramps are similar to the att
 
 Pressing the RAMP X button will show the display:
 
-**SELECT RAMP FROM 1 TO 4**
+```SELECT RAMP FROM 1 TO 4```
 
 Pressing an X SELECT button from 1 to 4 will select that Ramp, or pressing the RAMP X button again will select the Ramp that was selected previously.
 
 You can switch between Ramps with the X SELECT buttons, if none of the lower display functions are underlined.
 
-![Rate equals ramp time — diagram of the ramp between Note On and Note Off](images/p37-ramp-rate-diagram.png)
-
 #### Operation
+
+![Rate equals ramp time — diagram of the ramp between Note On and Note Off](images/p37-ramp-rate-diagram.png)
 
 Not much to operate on page 1 of a Ramp, just the RAMP RATE. However, the Ramps can operate in several modes which are on page 2. These are the same options as for envelopes.
 
-*(page-0038.png, printed p.37)*
-
-**MULTI / EXTRIG / VIB / GATED**
+![RAMPX page 2](images/ramp-page2.JPG)
 
 **SINGLE-MULTI** / In single mode, the Ramp gets a new gate signal only if not already gated (that is, already playing). Slurring notes will not generate new gates.
 
@@ -743,44 +745,41 @@ There are two controls for naming a patch:
 
 The available characters include English numbers and letters, as well as quotes, brackets and other symbols.
 
-```changelog
-37:1 | clean page | confidence high
-38:1 | "This triggers the Ramp f the Ramp is gated" -> "...will trigger the Ramp only if the Ramp is gated" | confidence high
-```
 
 ### Modulation Pages
 
 *(page-0039.png, printed p.38)*
 
-#### Possible Modulation Sources
-
 A Modulation Page exists behind every function that can be modulated. The Modulation Pages are shown in green on the block diagram. To access a particular Modulation Page, press the button of the function you wish to modulate (notice the "Modulation Page Select" LED to the left of the buttons). For example, on the VCF/VCA page, touch the FREQ button to modulate the filter frequency, touch RES to modulate the filter resonance, or touch VCA1 or VCA2 to modulate the volume of the VCAs. To return to the primary page, touch the PAGE 2 button, or touch any of the page select buttons to go to another page.
 
 When a function is being modulated, a dot will appear in the display next to the function's name.
 
+#### Possible Modulation Sources
+
+
 Any of the devices labelled in the Modulation Source section can be used as a modulation source. These are:
 
-LEVER 1 is usually a MIDI pitch bend lever or wheel.
+**LEVER 1** is usually a MIDI pitch bend lever or wheel.
 
-LEVER 2 is usually a MIDI vibrato lever or wheel (not the vibrato itself — that's VIB). PEDAL 1 is usually the Xpander's Pedal 1 input.
+**LEVER 2** is usually a MIDI vibrato lever or wheel (not the vibrato itself — that's VIB). PEDAL 1 is usually the Xpander's Pedal 1 input.
 
-PEDAL 2 is usually the Xpander's Pedal 2 input.
+**PEDAL 2** is usually the Xpander's Pedal 2 input.
 
-VIB is the output of the VIB Multi Patch page.
+**VIB** is the output of the VIB Multi Patch page.
 
-KEYBOARD is whatever is designated as the controller for each voice: CV, MIDI Channel, or Zone.
+**KEYBOARD** is whatever is designated as the controller for each voice: CV, MIDI Channel, or Zone.
 
-LAG is the output of the Lag Processor. VELOCITY is the MIDI attack velocity signal (how fast you press down on the keys). RELEASE VELOCITY is the MIDI release velocity signal (how fast you let go).
+**LAG** is the output of the Lag Processor. VELOCITY is the MIDI attack velocity signal (how fast you press down on the keys). RELEASE VELOCITY is the MIDI release velocity signal (how fast you let go).
 
-PRESSURE is usually the MIDI after-touch pressure signal (how hard you press on the keys while holding them down).
+**PRESSURE** is usually the MIDI after-touch pressure signal (how hard you press on the keys while holding them down).
 
-ENV X will assign an Envelope Generator as an input. The display will prompt you for which one.
+**ENV X** will assign an Envelope Generator as an input. The display will prompt you for which one.
 
-LFO X will assign an LFO as an input. The display will prompt you for which one.
+**LFO X** will assign an LFO as an input. The display will prompt you for which one.
 
-TRACK X will assign a Tracking Generator as an input. The display will prompt you for which one.
+**TRACK X** will assign a Tracking Generator as an input. The display will prompt you for which one.
 
-RAMP X will assign a Ramp Generator as an input. The display will prompt you for which one.
+**RAMP X** will assign a Ramp Generator as an input. The display will prompt you for which one.
 
 Exactly where the levers, pedals, and pressure come from is set on the MIDI Controls page in the Master Section.
 
@@ -810,7 +809,7 @@ To remove a modulation source, touch and hold the button underneath the source t
 
 Different effects can be achieved by Quantizing the modulation. Quantizing causes semitone steps instead of a smooth change of an Envelope, LFO, Lever, or other modulation.
 
-To quantize a modulation, press the button under the appropriate amount display (Value X) and press the QUANTIZE button in the X Select section. A [?symbol?] will appear in the display to indicate quantization.
+To quantize a modulation, press the button under the appropriate amount display (Value X) and press the QUANTIZE button in the X Select section. A "Q" will appear in the display to indicate quantization.
 
 ##### Positive/Negative Modulation
 
@@ -818,7 +817,7 @@ Modulation sources can be set to add (+) or subtract (−) from the initial valu
 
 ##### Multiple Modulation
 
-A modulation source can be directed to a particular destination more than once for more range, for example to bend notes farther than the minor sixth normally possible with MIDI Lever 1 (see MIDI Controls in the Master Page section for more details on this particular application.)
+A modulation source can be directed to a particular destination more than once for more range, for example to bend notes farther than the minor sixth normally possible with MIDI Lever 1 (see MIDI Controls in the [Master Page](#master-page) section for more details on this particular application.)
 
 Note that the control of the modulation amount is exponential, so the numbers don't exactly add up. The higher the number, the larger the amount of change. This enables one control to be used for a coarse range (large numbers) and an additional control used for a fine range (small numbers).
 
@@ -828,19 +827,15 @@ Note that the control of the modulation amount is exponential, so the numbers do
 
 There aren't many limits to your options in the Xpander, but you should be aware that there can be no more than 20 modulations on each voice at one time. The Xpander's computers simply can't do any more and keep up. (We've put twice the computing power of an IBM PC inside the Xpander, but even so it can only count so fast!)
 
+If you try to add additional modulations, the Xpander will flash the message:
+
+```MAXIMUM OF 20 MODULATIONS PER VOICE ```
+
 You will need to remove some modulations before you can add any more.
 
 Note that this limitation only applies to modulations on Modulation Pages; modulation sources on Page 2 of the VCOs and VCF are not counted. Therefore you should use the Page 2 modulations for control by the Keyboard, Lag, Vibrato, or Pitch Bend whenever possible.
 
 Unused modulations can be spotted by watching for the modulation dots next to function names in the display.
-
-```changelog
-39:1 | "you wish to modulate" reconstructed from "notice the Modulation Page Select LED" (clear text on the image) | confidence high
-40:1 | "touch the button underneath the source that you which to change/delete" -> "wish" (x2) | confidence high
-40:2 | "A will appear in the display to indicate quantization" -> left as "A [?symbol?] will appear..." | confidence medium (the display symbol is not visually confirmed, likely not legible on the scan)
-41:1 | "mogulat:on sources on f2age 2... are not counted Theretare you should use the Page 2 lations" -> full paragraph reconstructed from meaning and legible fragments | confidence medium
-```
-
 
 ---
 
