@@ -838,19 +838,14 @@ Note that this limitation only applies to modulations on Modulation Pages; modul
 Unused modulations can be spotted by watching for the modulation dots next to function names in the display.
 
 ---
+![Multi Patch/Master Page Map: diagram of the Voice/Pan/Volume/Transpose/CV-MIDI/Zone/MIDI connections](images/p42-multi-patch-master-page-map.png)
+
 
 ## Putting It All Together
 
-![Multi Patch/Master Page Map: diagram of the Voice/Pan/Volume/Transpose/CV-MIDI/Zone/MIDI connections](images/p42-multi-patch-master-page-map.png)
+ [Multi Patch Pages](#multi-patch-pages) — VOLUME, PAN, TRANSPOSE, VIB (Controls, Page 2), CV/MIDI, ZONES (Input, Limit, Mode, Splits Doubles and Triples), MISC (Naming Patches)
 
-*(page-0042.png, full-page plate with no folio — chapter opener)*
-
-*(page-0043.png, printed p.43 — opening page "Putting It All Together / Multi Patches", with the chapter's visual index)*
-
-Section index for this chapter (as printed on the opening page):
-
-- **44** Multi Patch Pages — VOLUME, PAN, TRANSPOSE, VIB (Controls, Page 2), CV/MIDI, ZONES (Input, Limit, Mode, Splits Doubles and Triples), MISC (Naming Patches)
-- **49** Master Pages — MASTER MULTI PAGES, CHAIN (Control Functions), MIDI (Channel, Controls, Enables, Send, Reset, Mute), GATE +/-, CASS, SERVICE PAGES (Voices On/Off, Service, Version)
+[Master Pages](#master-page) — MASTER MULTI PAGES, CHAIN (Control Functions), MIDI (Channel, Controls, Enables, Send, Reset, Mute), GATE +/-, CASS, SERVICE PAGES (Voices On/Off, Service, Version)
 
 ### Multi Patch Pages
 
@@ -884,9 +879,7 @@ The VIBrato page contains one LFO that can be used for all of the voices; for vi
 
 ##### Controls
 
-**SPEED / WAVE ... AMP**
-
-**48 TRIANGLE ... 63**
+![VIB page 1](images/vib-page1.JPG)
 
 **SPEED** / This controls the frequency of the LFO. Set to 0, the LFO takes 30 seconds to complete one cycle. Set to 63 the speed is about 25Hz.
 
@@ -898,9 +891,7 @@ The VIBrato page contains one LFO that can be used for all of the voices; for vi
 
 ##### Page 2
 
-**LAG**
-
-**SPEED=PED 2 ... AMP=LEV 2**
+![VIB page 2](images/vib-page2.JPG)
 
 **LAG/VIB** has its own fixed-time lag processor. Turning on lag will smooth out any sharp transitions like those in a square or sawtooth wave. (If you need greater lag control, you can always run it through the separate Lag Processor.)
 
